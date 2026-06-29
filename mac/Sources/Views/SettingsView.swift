@@ -9,6 +9,10 @@
 //  修改记录：
 //  - 朱菜：初版创建。Picker/Toggle 绑定 AppSettings；模型重新下载调 prepareModel；
 //          快捷键捕获用本地 NSEvent monitor，组合写回 hotKeyCode/hotKeyModifiers。
+//  - 朱菜：通用设置新增「转录模式」Picker（全量 / 流式），绑定 settings.transcriptionMode，
+//          下方加说明文案。默认保持全量模式不变。
+//  - 朱菜：录音 / 转录进行中禁用「转录模式」Picker（.disabled(appState.isBusy)），
+//          GeneralSettingsTab 补注入 appState 以读取忙碌状态。
 //
 
 import SwiftUI
@@ -22,6 +26,7 @@ struct SettingsView: View {
     var body: some View {
         TabView {
             GeneralSettingsTab()
+                .environmentObject(appState)
                 .environmentObject(settings)
                 .tabItem { Label("通用", systemImage: "slider.horizontal.3") }
 
@@ -41,6 +46,7 @@ struct SettingsView: View {
 // MARK: - 通用设置
 
 private struct GeneralSettingsTab: View {
+    @EnvironmentObject private var appState: AppState
     @EnvironmentObject private var settings: AppSettings
     /// 辅助功能权限状态。
     @State private var hasAxPermission: Bool = ClipboardManager.hasAccessibilityPermission()
@@ -63,6 +69,18 @@ private struct GeneralSettingsTab: View {
                     Text(mode.label).tag(mode)
                 }
             }
+
+            Picker("转录模式", selection: $settings.transcriptionMode) {
+                ForEach(TranscriptionMode.allCases) { mode in
+                    Text(mode.label).tag(mode)
+                }
+            }
+            // 录音 / 转录进行中禁用切换，避免流式停止逻辑走错（后端已有按下锁定兜底）。
+            .disabled(appState.isBusy)
+            // 模式说明文案。
+            Text("全量模式录完整段再转、更准；流式模式边说边出字、更快")
+                .font(.caption)
+                .foregroundStyle(.secondary)
 
             Section {
                 Toggle("纠正开发者术语", isOn: $settings.fixTerms)

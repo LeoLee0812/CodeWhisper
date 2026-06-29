@@ -9,6 +9,10 @@
 //
 //  修改记录：
 //  - 朱菜：初版创建。AppState 契约消费；电平条用 audioLevel 绘制；prepareModel 在 .task 中触发。
+//  - 朱菜：新增流式实时字幕区 liveTranscriptSection，仅在「流式模式 + 正在录音 + lastText 非空」时显示，
+//          随 @Published lastText 自动刷新。既有 lastResultSection/historyPreviewSection 显示条件不变。
+//  - 朱菜：lastResultSection 显示条件加非录音守卫（phase != .recording），消除录音中「实时转录」
+//          与「最近结果」同段文本重复；liveTranscriptSection / historyPreviewSection 条件不变。
 //
 
 import SwiftUI
@@ -40,7 +44,13 @@ struct MenuContentView: View {
 
             recordButton
 
-            if !appState.lastText.isEmpty {
+            // 流式模式录音过程中的实时字幕（边说边出字反馈）。
+            if isStreamingLive {
+                liveTranscriptSection
+            }
+
+            // 录音中只显示「实时转录」，松开定稿回到 .ready/.transcribing 后再显示「最近结果」，避免文本重复。
+            if !appState.lastText.isEmpty && appState.phase != .recording {
                 lastResultSection
             }
 
@@ -169,6 +179,29 @@ struct MenuContentView: View {
     private var isDownloading: Bool {
         if case .downloadingModel = appState.phase { return true }
         return false
+    }
+
+    // MARK: - 流式实时字幕
+
+    /// 是否应展示流式实时字幕：流式模式 + 正在录音 + 已有预览文本。
+    private var isStreamingLive: Bool {
+        settings.transcriptionMode == .streaming
+            && appState.phase == .recording
+            && !appState.lastText.isEmpty
+    }
+
+    /// 实时转录字幕区：样式参考 lastResultSection，圆角浅底、限 4 行。
+    private var liveTranscriptSection: some View {
+        VStack(alignment: .leading, spacing: 4) {
+            Text("实时转录").font(.caption.bold()).foregroundStyle(.secondary)
+            Text(appState.lastText)
+                .font(.callout)
+                .multilineTextAlignment(.leading)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .lineLimit(4)
+                .padding(8)
+                .background(Color.secondary.opacity(0.08), in: RoundedRectangle(cornerRadius: 8))
+        }
     }
 
     // MARK: - 最近结果

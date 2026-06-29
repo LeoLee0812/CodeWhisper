@@ -15,6 +15,19 @@ enum OutputMode: String, CaseIterable, Identifiable {
     }
 }
 
+/// 转录模式：全量（录完转，更准）/ 流式（边说边出字）。
+enum TranscriptionMode: String, CaseIterable, Identifiable {
+    case full        // 全量：录完转，更准（默认，= v1.0.0 行为）
+    case streaming   // 流式：边说边出字
+    var id: String { rawValue }
+    var label: String {
+        switch self {
+        case .full: return "全量模式（录完转，更准）"
+        case .streaming: return "流式模式（边说边出字）"
+        }
+    }
+}
+
 /// 用户设置，持久化到 UserDefaults。
 @MainActor
 final class AppSettings: ObservableObject {
@@ -52,6 +65,11 @@ final class AppSettings: ObservableObject {
         didSet { defaults.set(playSound, forKey: "playSound") }
     }
 
+    /// 转录模式：全量 / 流式。默认全量，与 v1.0.0 行为一致。
+    @Published var transcriptionMode: TranscriptionMode {
+        didSet { defaults.set(transcriptionMode.rawValue, forKey: "transcriptionMode") }
+    }
+
     /// 全局热键：键码。
     @Published var hotKeyCode: Int {
         didSet { defaults.set(hotKeyCode, forKey: "hotKeyCode") }
@@ -70,6 +88,7 @@ final class AppSettings: ObservableObject {
         fixTerms = defaults.object(forKey: "fixTerms") as? Bool ?? true
         launchAtLogin = defaults.bool(forKey: "launchAtLogin")
         playSound = defaults.object(forKey: "playSound") as? Bool ?? true
+        transcriptionMode = TranscriptionMode(rawValue: defaults.string(forKey: "transcriptionMode") ?? "") ?? .full
         hotKeyCode = defaults.object(forKey: "hotKeyCode") as? Int ?? kVK_ANSI_M
         hotKeyModifiers = defaults.object(forKey: "hotKeyModifiers") as? Int ?? Int(cmdKey)
     }

@@ -161,6 +161,36 @@ actor TranscriptionService {
         return text
     }
 
+    // MARK: - 流式转录
+
+    /// 把已加载的 pipe 组装成流式转录器（仅流式模式使用）。
+    /// 从已加载的 WhisperKit 六个 public 组件直取，自带麦克风采集，调用方放独立 Task 启动。
+    /// - Parameters:
+    ///   - language: 语言代码（zh / en / ...）；传 "auto" 时自动检测语言。
+    ///   - onState: 状态变化回调（旧值, 新值），可能在任意线程触发，调用方需自行切回主线程。
+    func makeStreamTranscriber(language: String, onState: @escaping AudioStreamTranscriberCallback) throws -> AudioStreamTranscriber {
+        guard let pipe = pipe else { throw ServiceError.modelNotLoaded }
+        guard let tokenizer = pipe.tokenizer else { throw ServiceError.modelNotLoaded }
+        let options: DecodingOptions = (language == "auto")
+            ? DecodingOptions(task: .transcribe, language: nil, temperature: 0.0,
+                              detectLanguage: true,
+                              compressionRatioThreshold: 2.4, noSpeechThreshold: 0.6)
+            : DecodingOptions(task: .transcribe, language: language, temperature: 0.0,
+                              usePrefillPrompt: true,
+                              compressionRatioThreshold: 2.4, noSpeechThreshold: 0.6)
+        return AudioStreamTranscriber(
+            audioEncoder: pipe.audioEncoder,
+            featureExtractor: pipe.featureExtractor,
+            segmentSeeker: pipe.segmentSeeker,
+            textDecoder: pipe.textDecoder,
+            tokenizer: tokenizer,
+            audioProcessor: pipe.audioProcessor,
+            decodingOptions: options,
+            useVAD: true,
+            stateChangeCallback: onState
+        )
+    }
+
     // MARK: - 幻觉过滤
 
     /// 检测明显的「循环重复」幻觉（常见于静音/低质量音频）。
