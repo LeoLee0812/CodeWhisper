@@ -662,7 +662,12 @@
         "索引": {
           "correct": "索引",
           "description": "数据库中用于加速查询的数据结构，常见为B+树",
-          "variants": []
+          "variants": [
+            {
+              "wrong": "锁引",
+              "description": "索 suǒ→锁 suǒ 同音"
+            }
+          ]
         },
         "B+树": {
           "correct": "B+树",
@@ -1097,12 +1102,22 @@
         "时间复杂度": {
           "correct": "时间复杂度",
           "description": "描述算法随输入规模增长的时间开销量级",
-          "variants": []
+          "variants": [
+            {
+              "wrong": "时间复杂的",
+              "description": "度 dù→的 de 弱读吞音"
+            }
+          ]
         },
         "空间复杂度": {
           "correct": "空间复杂度",
           "description": "描述算法所需额外存储空间随输入规模的变化",
-          "variants": []
+          "variants": [
+            {
+              "wrong": "空间复杂的",
+              "description": "度 dù→的 de 弱读吞音"
+            }
+          ]
         },
         "排序算法": {
           "correct": "排序算法",
@@ -1112,7 +1127,12 @@
         "快速排序": {
           "correct": "快速排序",
           "description": "基于分治的高效排序算法，平均性能优秀",
-          "variants": []
+          "variants": [
+            {
+              "wrong": "快速排虚",
+              "description": "序 xù→虚 xū 近音"
+            }
+          ]
         },
         "归并排序": {
           "correct": "归并排序",
@@ -3286,6 +3306,310 @@
             {
               "wrong": "绘画",
               "description": "常见错误识别"
+            }
+          ]
+        }
+      }
+    },
+    "algorithm": {
+      "name": "算法刷题",
+      "description": "刷题平台、经典题型与算法术语",
+      "terms": {
+        "力扣": {
+          "correct": "力扣",
+          "description": "LeetCode 中文名",
+          "variants": [
+            {
+              "wrong": "利扣",
+              "description": "lì kòu 同音异形"
+            },
+            {
+              "wrong": "立扣",
+              "description": "lì 同音"
+            },
+            {
+              "wrong": "力口",
+              "description": "扣 kòu 误切成「口」"
+            }
+          ]
+        },
+        "两数之和": {
+          "correct": "两数之和",
+          "description": "LeetCode 第 1 题经典题名",
+          "variants": [
+            {
+              "wrong": "两束之和",
+              "description": "数 shù→束 shù 同音"
+            },
+            {
+              "wrong": "两数只和",
+              "description": "之 zhī→只 zhǐ 近音"
+            }
+          ]
+        },
+        "滑动窗口": {
+          "correct": "滑动窗口",
+          "description": "双指针滑窗解法",
+          "variants": [
+            {
+              "wrong": "划动窗口",
+              "description": "滑 huá→划 huá 同音"
+            },
+            {
+              "wrong": "滑动床口",
+              "description": "窗 chuāng→床 chuáng 前后鼻音混淆"
+            }
+          ]
+        },
+        "动态规划": {
+          "correct": "动态规划",
+          "description": "DP 动态规划",
+          "variants": [
+            {
+              "wrong": "动太规划",
+              "description": "态 tài→太 tài 同音"
+            },
+            {
+              "wrong": "动态归化",
+              "description": "规划 guī huà→归化 guī huà 同音"
+            }
+          ]
+        },
+        "回溯": {
+          "correct": "回溯",
+          "description": "回溯算法 backtracking",
+          "variants": [
+            {
+              "wrong": "回缩",
+              "description": "溯 sù→缩 suō 近音"
+            },
+            {
+              "wrong": "回素",
+              "description": "溯 sù→素 sù 同音"
+            }
+          ]
+        },
+        "二叉树": {
+          "correct": "二叉树",
+          "description": "binary tree",
+          "variants": [
+            {
+              "wrong": "二叉数",
+              "description": "树 shù→数 shù 同音，最高频"
+            },
+            {
+              "wrong": "二插树",
+              "description": "叉 chā→插 chā 同音"
+            }
+          ]
+        },
+        "二分查找": {
+          "correct": "二分查找",
+          "description": "binary search",
+          "variants": [
+            {
+              "wrong": "二分插找",
+              "description": "查 chá→插 chā 近音"
+            },
+            {
+              "wrong": "而分查找",
+              "description": "二 èr→而 ér 同音"
+            }
+          ]
+        },
+        "并查集": {
+          "correct": "并查集",
+          "description": "union-find",
+          "variants": [
+            {
+              "wrong": "并茶集",
+              "description": "查 chá→茶 chá 同音"
+            },
+            {
+              "wrong": "并查急",
+              "description": "集 jí→急 jí 同音"
+            }
+          ]
+        },
+        "拓扑排序": {
+          "correct": "拓扑排序",
+          "description": "topological sort",
+          "variants": [
+            {
+              "wrong": "拓普排序",
+              "description": "扑 pū→普 pǔ 近音"
+            },
+            {
+              "wrong": "托普排序",
+              "description": "拓 tuò 常被读 tuō"
+            }
+          ]
+        },
+        "前缀和": {
+          "correct": "前缀和",
+          "description": "prefix sum",
+          "variants": [
+            {
+              "wrong": "前缀河",
+              "description": "和 hé→河 hé 同音"
+            },
+            {
+              "wrong": "前坠和",
+              "description": "缀 zhuì→坠 zhuì 同音"
+            }
+          ]
+        },
+        "单调栈": {
+          "correct": "单调栈",
+          "description": "monotonic stack",
+          "variants": [
+            {
+              "wrong": "单调站",
+              "description": "栈 zhàn→站 zhàn 同音，最高频"
+            },
+            {
+              "wrong": "单挑栈",
+              "description": "调 tiáo→挑 tiāo 近音"
+            }
+          ]
+        },
+        "优先队列": {
+          "correct": "优先队列",
+          "description": "priority queue",
+          "variants": [
+            {
+              "wrong": "优先对列",
+              "description": "队 duì→对 duì 同音，最高频"
+            }
+          ]
+        },
+        "字典树": {
+          "correct": "字典树",
+          "description": "Trie 前缀树",
+          "variants": [
+            {
+              "wrong": "字典数",
+              "description": "树 shù→数 shù 同音"
+            }
+          ]
+        },
+        "链表": {
+          "correct": "链表",
+          "description": "linked list（注意勿用「连表」做变体，会误伤连表查询）",
+          "variants": [
+            {
+              "wrong": "练表",
+              "description": "链 liàn→练 liàn 同音"
+            },
+            {
+              "wrong": "莲表",
+              "description": "链 liàn→莲 lián 近音"
+            }
+          ]
+        },
+        "快慢指针": {
+          "correct": "快慢指针",
+          "description": "fast-slow pointers",
+          "variants": [
+            {
+              "wrong": "快慢织针",
+              "description": "指 zhǐ→织 zhī 近音"
+            }
+          ]
+        },
+        "记忆化搜索": {
+          "correct": "记忆化搜索",
+          "description": "memoization",
+          "variants": [
+            {
+              "wrong": "记忆话搜索",
+              "description": "化 huà→话 huà 同音"
+            }
+          ]
+        },
+        "大顶堆": {
+          "correct": "大顶堆",
+          "description": "max heap",
+          "variants": [
+            {
+              "wrong": "大顶队",
+              "description": "堆 duī→队 duì 近音"
+            }
+          ]
+        },
+        "小顶堆": {
+          "correct": "小顶堆",
+          "description": "min heap",
+          "variants": [
+            {
+              "wrong": "小顶队",
+              "description": "堆 duī→队 duì 近音"
+            }
+          ]
+        },
+        "层序遍历": {
+          "correct": "层序遍历",
+          "description": "level-order traversal",
+          "variants": [
+            {
+              "wrong": "层序变例",
+              "description": "遍历 biàn lì→变例"
+            }
+          ]
+        },
+        "剪枝": {
+          "correct": "剪枝",
+          "description": "搜索剪枝（已剔除高误伤的「减脂」变体）",
+          "variants": [
+            {
+              "wrong": "减枝",
+              "description": "剪 jiǎn→减 jiǎn 同音"
+            }
+          ]
+        },
+        "最大子数组和": {
+          "correct": "最大子数组和",
+          "description": "maximum subarray",
+          "variants": [
+            {
+              "wrong": "最大子数组河",
+              "description": "和 hé→河 hé 同音"
+            }
+          ]
+        },
+        "双端队列": {
+          "correct": "双端队列",
+          "description": "deque",
+          "variants": [
+            {
+              "wrong": "双端对列",
+              "description": "队 duì→对 duì 同音"
+            }
+          ]
+        }
+      }
+    },
+    "company": {
+      "name": "互联网公司",
+      "description": "高频互联网公司名（专名识别普遍较准，仅补真同音误识别）",
+      "terms": {
+        "字节跳动": {
+          "correct": "字节跳动",
+          "description": "ByteDance",
+          "variants": [
+            {
+              "wrong": "字节条动",
+              "description": "跳 tiào→条 tiáo 近音"
+            }
+          ]
+        },
+        "腾讯": {
+          "correct": "腾讯",
+          "description": "Tencent",
+          "variants": [
+            {
+              "wrong": "腾迅",
+              "description": "讯 xùn→迅 xùn 同音异形"
             }
           ]
         }
