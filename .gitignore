@@ -12,8 +12,19 @@ thumbs.db
 # 用户个性化数据（不提交到 Git）
 config/user_dict.json
 
+# 内置模型（体积过大，不进 Git，由 build_dmg.sh 在打包时拷入 .app）
+mac/Models/
+
 # 测试音频文件
 *.m4a
 *.wav
 *.mp3
 *.webm
+
+# Xcode 生成物（工程由 mac/project.yml 经 xcodegen 生成，不入 Git）
+mac/build/
+mac/*.xcodeproj/
+mac/DerivedData/
+
+# 打包产物（dmg 作为 GitHub Release 资产分发，不入 Git）
+*.dmg

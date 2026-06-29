@@ -2,6 +2,7 @@
 
 **针对中文语境优化的语音转文字工具，一键转录至剪贴板，打破网页端限制，实现与各家大模型（ChatGPT/Grok/Gemini 等）的无缝对话。** | Local Speech-to-Text for Any AI
 
+> **v1.0 起，CodeWhisper 已重构为原生 Swift / SwiftUI macOS 应用** —— 菜单栏常驻、Apple Neural Engine 加速、模型内置离线开箱即用、单个 `.dmg` 安装，无需 Python / FFmpeg 环境。旧的 Python 版仍保留在仓库中作为参考（见文末「Python 旧版」）。
 
 ---
 
@@ -22,14 +23,14 @@
 
 你想用语音输入解决打字慢的问题，但各大厂商的语音转文字都有坑：
 
-| 厂商 | 问题                                                                   | 来源 |
-|------|----------------------------------------------------------------------|------|
-| **ChatGPT** | 由于网络波动或语音输入tokens限制，超过 20 秒经常发生吞用户录音的情况                              | [OpenAI 官方论坛](https://community.openai.com/t/transcription-failures-with-voice-messages-on-chatgpt/705251) |
+| 厂商 | 问题 | 来源 |
+|------|------|------|
+| **ChatGPT** | 由于网络波动或语音输入 tokens 限制，超过 20 秒经常发生吞用户录音的情况 | [OpenAI 官方论坛](https://community.openai.com/t/transcription-failures-with-voice-messages-on-chatgpt/705251) |
 | **Gemini** | 中文支持差，说的越多越吞文字，用户反馈 "Voice Recognition simply does not work" | [Google 支持社区](https://support.google.com/gemini/thread/342537101) |
-| **Grok** | 语音模式需要 Premium+ 订阅                                                   | [Social Media Today](https://www.socialmediatoday.com/news/xai-x-formerly-twitter-adds-grok-voice-mode/740820/) |
-| **Mac 自带** | 依旧采用上一代ASR技术，转录中文后语义直接崩塌                                             | - |
+| **Grok** | 语音模式需要 Premium+ 订阅 | [Social Media Today](https://www.socialmediatoday.com/news/xai-x-formerly-twitter-adds-grok-voice-mode/740820/) |
+| **Mac 自带** | 依旧采用上一代 ASR 技术，转录中文后语义直接崩塌 | - |
 
-> 而且各大厂商针对中文社区并不能做很好的特定优化，加之网络本身就不稳定，更容易出问题。
+> 各大厂商针对中文社区并不能做很好的特定优化，加之网络本身就不稳定，更容易出问题。
 
 ### 解决思路：Whisper 本地化
 
@@ -39,18 +40,17 @@
 - 本地运行，不怕断网
 - 不绑定任何平台，想喂哪个 AI 就粘贴到哪个
 
-### 双向奔赴 ：大模型的的兜底推理能力
+### 双向奔赴：大模型的兜底推理能力
 
 一个句子中即使有一两个词识别错了，并不影响整个语义。下游的大模型能通过上下文捕获你的真实意图：
+
 ```
 你说的："帮我用双指针解决这个力扣题"
 识别成："帮我用双只针解决这个利扣题"
 大模型：完全理解 ✅（上下文推断）
 ```
 
-**所以语音输入层有些小错误没关系，下游大模型会兜底。整体问题不大。**
-
-当然，能更准确肯定更好——这就是为什么 CodeWhisper 还做了特定术语的字典纠正功能。
+**语音输入层有些小错误没关系，下游大模型会兜底。** 当然，能更准确肯定更好——这就是为什么 CodeWhisper 还做了特定术语的字典纠正功能。
 
 ---
 
@@ -58,213 +58,98 @@
 
 ```
 ┌─────────────────────────────────────────────────────────┐
-│  🎙️ 本地录音（Mac 菜单栏 / Windows 悬浮球）                 │
+│  🎙️ 按住快捷键录音（Mac 菜单栏常驻）                        │
 │       ↓                                                 │
-│  🧠 Whisper 本地转录（不怕断网、不会吞文本）                  │
+│  🧠 WhisperKit 本地转录（CoreML / ANE，不怕断网）           │
 │       ↓                                                 │
-│  🔧 程序员术语自动纠正                                     │
+│  🔧 程序员术语自动纠正 + 繁简转换 + 标点规范化               │
 │       ↓                                                 │
-│  📋 自动复制到剪贴板                                      │
+│  📋 自动复制到剪贴板，并可自动粘贴到当前应用                  │
 │       ↓                                                 │
-│  🤖 粘贴到任意 AI：ChatGPT / Claude / Gemini / Grok / ... │
+│  🤖 直达任意 AI：ChatGPT / Claude / Gemini / Grok / ...   │
 └─────────────────────────────────────────────────────────┘
 ```
 
 **核心优势：**
-- ✅ **本地运行**：不依赖网络，不会断联吞文本
+- ✅ **纯本地、离线开箱即用**：模型与 tokenizer 已内置进 App，首次启动无需联网
+- ✅ **原生 + ANE 加速**：基于 [WhisperKit](https://github.com/argmaxinc/WhisperKit)，`large-v3-turbo` 模型在 Apple Neural Engine 上数十倍实时速度，发热小、续航好
 - ✅ **不绑定平台**：想和哪个 AI 聊就粘贴到哪个
 - ✅ **中文开发优化**：400+ 术语纠正规则，社区共建
-- ✅ **可迁移架构**：代码与字典低耦合，可迁移至医疗、法律等行业
+- ✅ **零依赖安装**：单个 `.dmg`，无需 Python / FFmpeg
 
 ---
 
 ## Quick Start 🚀
 
-### ⚠️ 系统依赖 - FFmpeg
+### 系统要求
 
-CodeWhisper 依赖 **FFmpeg** 来解析音频文件。
+- macOS 14 (Sonoma) 及以上
+- Apple Silicon（M 系列芯片）
 
-```bash
-# 检查是否已安装
-ffmpeg -version
+### 安装（推荐：下载 DMG）
 
-# macOS
-brew install ffmpeg
+1. 到 [Releases](https://github.com/LeoLee0812/CodeWhisper/releases) 下载最新的 **`CodeWhisper.dmg`**
+2. 双击打开 dmg，把 **CodeWhisper** 拖入「应用程序」文件夹
+3. **首次启动**：当前为本地 ad-hoc 签名（未做 Apple 公证），Gatekeeper 会拦一下。任选其一绕过：
+   - 在「应用程序」里 **右键点 CodeWhisper → 打开**，在弹窗中再点「打开」
+   - 或在终端执行：`xattr -dr com.apple.quarantine /Applications/CodeWhisper.app`
+4. **授权权限**（系统设置 → 隐私与安全性）：
+   - **麦克风**：用于录音
+   - **辅助功能**：用于全局快捷键监听 + 自动粘贴上屏
 
-# Windows
-winget install ffmpeg
-```
+启动后菜单栏右上角会出现 🎙️ 图标（应用不在 Dock 显示，常驻菜单栏）。
 
-### 安装
-
-```bash
-# 1. 克隆仓库
-git clone https://github.com/superlls/CodeWhisper.git
-cd CodeWhisper
-
-# 2. 创建虚拟环境
-python -m venv .venv
-source .venv/bin/activate  # macOS
-# 或 .venv\Scripts\activate  # Windows
-
-# 3. 安装依赖
-pip install -r requirements.txt
-```
-
-macOS 说明：全局快捷键（按住 `Command + M` 录音）依赖 `pyobjc-framework-Quartz`，已包含在 `requirements.txt`，如你是老环境请重新执行一次安装依赖。
-
-### 启动
-
-```bash
-python app.py
-```
+> 模型已随 App 内置（`large-v3-turbo`，约 600MB），**首次启动即可离线使用**，无需等待下载。
+>
+> ⏳ **关于首次启动**：第一次运行时，CoreML 会针对你的芯片对模型做一次性 Apple Neural Engine 编译（约 1-2 分钟，菜单栏图标显示加载中）。这一步只发生一次，之后会走缓存、秒级就绪。建议安装后先打开 App 让它在后台完成编译，再开始使用。
 
 ---
 
 ## 使用方式
 
-### Mac 菜单栏应用
+### 按住说话，松开上屏
 
-启动后，点击菜单栏的 🎙️ 图标：
-
-| 状态 | 含义 |
+| 菜单栏图标 | 含义 |
 |------|------|
-| 🎙️ | 待命状态 |
+| 🎙️ | 待命 |
 | 🔴 | 正在录音 |
 | ⏳ | 正在转录 |
-| ✅ | 转录完成（自动复制到剪贴板）|
 
-**工作流程**：
-1. 点击菜单栏 🎙️ → "开始录音"
+**工作流程：**
+1. **按住 `⌘M`**（默认快捷键）开始录音
 2. 说出你的内容
-3. 再次点击 → "停止录音"
-4. 转录结果自动复制到剪贴板
-5. 粘贴到任意 AI 使用
+3. **松开** → 自动转录 → 术语纠正 → 复制到剪贴板并**自动粘贴**到当前光标处
+4. 直接在 ChatGPT / Claude / IDE 等任意应用里继续
 
-**快捷键（macOS）**：
-- `Command + M` 开始录音；再按一次停止录音并开始转录
+也可以点击菜单栏图标，从菜单里手动开始/停止录音、查看历史、打开设置。
 
-**转录模式（macOS）**：
-- `极速模式（边录边转）`：录音过程中后台分块转录，录音结束后更快出结果（可能标点较少）
-- `全量模式（录完再转，带标点）`：录音结束后统一转录，标点/上下文更好（等待更久）
+### 设置项
 
-**权限（macOS）**：
-- 全局快捷键需要“辅助功能”权限：系统设置 → 隐私与安全性 → 辅助功能 → 允许当前运行的 `Python`/应用
-- 若未授权，应用会提示 `AXIsProcessTrusted`/`CGEventTapCreate` 相关失败，热键不会生效
+- **模型**：默认 `large-v3-turbo`（内置）；可切换高精度 `large-v3` 或省空间 `small`（非内置的会在首次选用时联网下载）
+- **快捷键**：自定义 hold-to-record 组合键（默认 `⌘M`）
+- **输出方式**：仅复制到剪贴板 / 复制并自动粘贴
+- **开机自启**：登录时自动常驻菜单栏
+- **提示音**：转录完成提示音开关
 
-**性能优化（macOS）**：
-- 录音过程中会后台分块转录（默认每 10 秒一个分块），尽量把转录耗时“摊平”到录音期间，从而减少录音结束后的等待时间
-- 可用环境变量调整：`CODEWHISPER_CHUNK_SECONDS`（默认 10）、`CODEWHISPER_MIN_FINAL_SECONDS`（默认 1.5）
+### 后处理管线（与 Python 版对齐）
 
-**模型配置**：默认为 `medium`，如需修改请在 `gui/mac_menu_bar_app.py` 中设置 `CodeWhisper(model_name="...")`
-
-**菜单功能补充**：
-- `最近记录 (History)`：保存最近 10 条转录结果（持久化到项目根目录 `history.json`），点击某条可再次复制到剪贴板
-- `清除历史记录`：清空 `history.json`（写入空记录）
-- `快速添加术语`：弹窗输入 `错误变体 正确术语`（例如：`瑞迪斯 Redis`），会写入 `dictionaries/programmer_terms.json` 的 `other` 分类，重启后生效
-
-### Windows 悬浮球应用
-
-启动后会出现桌面悬浮球：
-- 点击开始录音，再次点击停止录音
-- 转写完成后自动复制到剪贴板
-
-**模型配置**：默认为 `small`，如需修改请在 `gui/win_floating_ball_app.py` 中设置 `CodeWhisper(model_name="...")`
+录音 → WhisperKit 本地转录（锁定中文 `zh`）→ 幻觉/静音/重复循环过滤 → 繁体转简体 → 中文标点规范化 → **400+ 术语字典兜底纠错** → 上屏 + 写入历史。
 
 ---
 
----
+## 🧠 术语纠错引擎
 
-## 硬件加速支持 ⚠️
+各大语音识别对程序员术语的识别都很差，CodeWhisper 用社区字典自动纠正：
 
-### 
+| 说的话 | 普通识别 | CodeWhisper |
+|--------|----------|-------------|
+| 提PR | "TPR" ❌ | 提PR ✅ |
+| Mentor | "门特尔" ❌ | Mentor ✅ |
+| MySQL | "my circle" ❌ | MySQL ✅ |
+| Apollo | "阿波罗" ❌ | Apollo ✅ |
+| 提测 | "体测" ❌ | 提测 ✅ |
 
-**默认情况**：依赖包使用 CPU 进行 Whisper 模型推理。如果你有 NVIDIA 显卡，可以启用 GPU 加速。
-
-#### ⚡ NVIDIA 显卡加速（推荐）
-
-```bash
-# 1. 检查 CUDA 版本
-nvidia-smi
-
-# 2. 安装 GPU 版 PyTorch
-pip uninstall -y torch torchaudio torchvision
-
-# CUDA 12.1（较新）
-pip install torch torchaudio torchvision --index-url https://download.pytorch.org/whl/cu121
-
-# CUDA 11.8（较旧）
-pip install torch torchaudio torchvision --index-url https://download.pytorch.org/whl/cu118
-
-# 3. 验证：启动时显示 "device=cuda" 即成功
-python app.py
-```
-
-**显存不足处理**：如果报错 `CUBLAS_STATUS_ALLOC_FAILED`，改用更小的模型（`small` 或 `base`）
-
-#### ❌ AMD 显卡
-
-- Windows 下 Whisper 暂不支持 ROCm 环境，只能使用 CPU
-
-#### 🍎 Mac
-
-- 使用 CPU 运行（Apple Silicon 会自动优化）
-- 如果想减小 CPU 占用，可将模型改为 `small` 或 `base`
-
-
-## 误打误撞的功能 ✨
-
-> 这个项目本来是想做一个**写日报的工具**。在了解 Whisper 的过程中，发现它对中文转录效果很好，于是基于 Whisper 构建了一套流程：
->
-> ```
-> 🎙️ 语音输入 → 🧠 Whisper 转录 → 📚 字典兜底命中纠错 → 📋 输出到剪贴板
-> ```
->
-> 在这个过程中，做了两个针对中文程序员的专门增强：
-> 1. **术语字典兜底**：Whisper 识别错的术语，用字典规则纠正
-> 2. **动态提示词**：根据你常用的术语，自动优化 Whisper 的识别偏好
->
-> 后来发现，这套东西用来和各大 AI 对话也很好用，就变成了现在的样子。
-
-### 🧠 可学习的术语纠错引擎
-
-**双重优化机制**：兜底命中 + 自适应学习
-
-#### 1️⃣ 术语字典兜底纠错
-
-各大语音识别对程序员术语的识别都很差，CodeWhisper 自动纠正：
-
-| 说的话    | 普通识别          | CodeWhisper |
-|--------|---------------|-------------|
-| 提PR    | "TPR" ❌       | 提PR ✅       |
-| Mentor | "门特尔" ❌       | Mentor ✅    |
-| MySQL  | "my circle" ❌ | MySQL ✅     |
-| Apollo | "阿波罗" ❌       | Apollo ✅    |
-| 提测     | "体测" ❌        | 提测 ✅        |
-
-#### 2️⃣ 智能学习系统
-
-```mermaid
-graph LR
-    A[构建提示词] --> B[用户说话]
-    B --> C[字典修正]
-    C --> D[检测用户高频词]
-    D --> E[描绘用户画像]
-    E --> F[优化下次识别]
-    F --> B
-```
-
-**示例**：
-```bash
-# 初始状态
-提示词：计算机行业从业者：提测、联调、排期、上线、Vue、React、数据库、日志、Git。
-
-# 使用一段时间后（你经常说 SpringBoot、Dubbo、Redis、Kafka）
-提示词：计算机行业从业者：提测、联调、Dubbo、Redis、Kafka、SpringBoot、MySQL、并发、缓存。
-       ↑ 系统自动检测到你的高频术语，识别出你是后端开发工程师，持续优化相关术语识别率
-```
-
----
+**纠错算法**：短的纯字母数字词（≤3 字符）加前后边界，避免子串误匹配；长词直接匹配；按错误词长度降序匹配，先长后短避免覆盖。字典还会被编码进 Whisper 的 prompt，引导模型优先识别这些术语。
 
 ### 📚 社区驱动的术语字典
 
@@ -272,67 +157,68 @@ graph LR
 
 | 分类 | 示例术语 |
 |------|----------|
-| 职场术语 | 提PR/提MR、提测、排期、逾期、联调、灰度、验收、权限、工单、复盘、风险评估、需求拆解... |
-| 大学、八股文术语 | 秋招、春招、校招、社招、offer、CV、实习、技术栈、笔试、面试、刷题、年包、SP、SSP、上岸... |
-| 编程语言 | Python、Java、Go、JavaScript、TypeScript、Rust、C++、C#、PHP、Ruby、Kotlin... |
-| 开发工具 | IDEA、VSCode、WebStorm、PyCharm、Goland、Vim、Emacs、Postman、Git、GitHub、GitLab... |
-| 技术概念 | API、REST、GraphQL、SQL、ORM、CRUD、MVC、日志、Token、Header、密钥对、设计模式... |
-| 前端开发 | Vue（持续补充，欢迎 PR） |
-| 后端开发 | Spring、SpringBoot、Kafka、Zookeeper、Apollo、Caffeine、CAT、Arthas、RPC、Cron、QPS、TPS... |
-| 数据库 | MySQL、PostgreSQL、MongoDB、Redis、ES、DB、DBA、慢SQL、字段、生产库、缓存击穿、缓存雪崩... |
-| DevOps工具 | Docker、Kubernetes、K8s、Git、GitHub、GitLab、Maven、Gradle、npm、Yarn、CI/CD、流水线... |
-| 运维 | Nginx、Apache、内网、代理、重启、监控告警、日志追踪、服务治理... |
-| 硬件与操作系统 | macOS、Windows、Linux、STM32、ARM、虚拟内存、写时复制... |
-| 通信协议 | HTTP、HTTPS、SSL、会话、TCP、UDP、三次握手、四次挥手、KeepAlive... |
-| 其他术语 | 依赖、高并发、高可用、高性能、微服务、分布式、容器、心跳机制... |
+| 职场术语 | 提PR/提MR、提测、排期、逾期、联调、灰度、验收、复盘、风险评估、需求拆解... |
+| 大学 / 求职 | 秋招、春招、校招、社招、offer、CV、实习、技术栈、笔试、面试、刷题、年包、SP、SSP... |
+| 编程语言 | Python、Java、Go、JavaScript、TypeScript、Rust、C++、C#、PHP、Kotlin... |
+| 开发工具 | IDEA、VSCode、WebStorm、PyCharm、Goland、Vim、Postman、Git、GitHub... |
+| 技术概念 | API、REST、GraphQL、SQL、ORM、CRUD、MVC、Token、设计模式... |
+| 后端开发 | Spring、SpringBoot、Kafka、Zookeeper、Apollo、Arthas、RPC、QPS、TPS... |
+| 数据库 | MySQL、PostgreSQL、MongoDB、Redis、ES、慢SQL、缓存击穿、缓存雪崩... |
+| DevOps | Docker、Kubernetes、K8s、Maven、Gradle、npm、Yarn、CI/CD、流水线... |
+| 运维 / 协议 / 硬件 | Nginx、HTTP/HTTPS、TCP/UDP、三次握手、macOS、Linux、ARM... |
 
-> 完整规则见 `dictionaries/programmer_terms.json`，如有遗漏欢迎提 Issue/PR 补充～
-
-**社区字典双重作用**：
-1. ✅ **兜底纠错**：识别错误时立即命中并修正
-2. ✅ **自主学习**：检测你常用的术语并构建个人词库，动态识别你的方向，持续优化识别率
+> 完整规则见 [`dictionaries/programmer_terms.json`](./dictionaries/programmer_terms.json)，欢迎提 Issue / PR 补充。字典是与代码低耦合的纯 JSON，理论上可迁移到医疗、法律等其它行业。
 
 ---
 
-### 🔧 低耦合架构
+## 模型说明
 
-**完全配置文件驱动，代码与业务零耦合**：
+基于 [WhisperKit](https://github.com/argmaxinc/WhisperKit)（CoreML），在 Apple Neural Engine 上推理：
 
-```
-config/
-├── base_config.json    # 行业配置（前缀、参数）
-├── base_dict.json      # 通用术语库
-└── user_dict.json      # 个人学习词库（自动生成）
-```
+| 模型 | 体积 | 中文准确率 | 说明 |
+|------|------|-----------|------|
+| `large-v3-turbo` | ~600MB | 高 | **默认，已内置**，速度/准确率/续航最佳平衡 |
+| `large-v3` | ~950MB | 最高 | 追求极致准确率，首次选用时下载 |
+| `small` | ~220MB | 中 | 省空间，首次选用时下载 |
 
-**迁移到其他行业仅需 2 步**：
+> `tiny` / `base` 中文准确率不足，不建议用于中文。
+
+---
+
+## 从源码构建 🔨
+
+需要 Xcode 15+、[XcodeGen](https://github.com/yonaskolb/XcodeGen)、[create-dmg](https://github.com/create-dmg/create-dmg)（`brew install xcodegen create-dmg`）。
 
 ```bash
-# 从"计算机行业"切换到"医疗行业"
+# 1. 生成 Xcode 工程
+cd mac && xcodegen generate
 
-# 1. 修改配置信息
-将 config/base_config.json 的 "计算机行业从业者：" 改为 "医疗行业从业者："
-将 config/base_dict.json 替换为医疗常用术语
+# 2. 直接用 Xcode 构建运行，或命令行构建
+xcodebuild -project mac/CodeWhisper.xcodeproj -scheme CodeWhisper -configuration Release build
 
-# 2. 替换字典库
-将 dictionaries/programmer_terms.json 替换为医疗行业字典库
+# 3. 一键打包成内置模型的单文件 DMG（构建 + ad-hoc 签名 + 内置模型/tokenizer + create-dmg）
+bash scripts/build_dmg.sh
 ```
 
-> 你也可以根据自己的方向，边用边调整字典，个性化定制属于自己的语音识别工具。
+> `build_dmg.sh` 会把 `mac/Models/<模型>` 与 `mac/Models/tokenizer` 拷进 `App.app/Contents/Resources/Models/` 实现离线内置。模型文件较大、不入 Git，可用 `huggingface-cli` 从 `argmaxinc/whisperkit-coreml`（模型）和 `openai/whisper-large-v3`（tokenizer）下载到 `mac/Models/` 后再打包。
+
+项目结构与 Agent 协作约定见 [`CLAUDE.md`](./CLAUDE.md)。
 
 ---
 
-### 🚀 模型选择
+## 技术架构
 
-| 模型 | 速度 | 准确度 | 适用场景 |
-|------|------|--------|----------|
-| tiny | 最快 | 一般 | 快速草稿 |
-| base | 快 | 较好 | 日常使用 |
-| small | 中等 | 好 | Windows 默认 |
-| medium | 较慢 | 很好 | Mac 默认，推荐 |
-| large | 慢 | 最好 | 专业场景 |
+| 模块 | 实现 |
+|------|------|
+| UI / 菜单栏 | SwiftUI `MenuBarExtra`（`LSUIElement` 隐藏 Dock 图标） |
+| 转录引擎 | WhisperKit（CoreML / Apple Neural Engine） |
+| 音频采集 | `AVAudioEngine` + `AVAudioConverter`（重采样到 16kHz 单声道） |
+| 全局快捷键 | `NSEvent` 全局监听实现 hold-to-record |
+| 自动上屏 | `NSPasteboard` 复制 + `CGEvent` 模拟 ⌘V |
+| 术语 / 繁简 / 标点 | 移植自 Python 版的纠错与归一化逻辑（`StringTransform` 繁转简） |
+| 持久化 | `UserDefaults`（设置）+ JSON（历史，存于 Application Support） |
 
-
+---
 
 ## License 📄
 
@@ -340,11 +226,22 @@ MIT License - 详见 [LICENSE](./LICENSE)
 
 ## 参与贡献 ❤️
 
-如果你发现术语字典中缺少某个术语或遇到了新的变体，欢迎提 Issue 或 PR：
-
 - 🐛 报告转录错误和识别问题
-- 📝 添加新的术语修正规则
+- 📝 添加新的术语修正规则（编辑 `dictionaries/programmer_terms.json`）
 - 👀 反馈 Bug 或添加新功能
 - 📚 联系邮箱：1656839861un@gmail.com
 
 详见 [CONTRIBUTING.md](./CONTRIBUTING.md)
+
+---
+
+## Python 旧版（Legacy）
+
+v1.0 之前的 Python + rumps 实现仍保留在仓库：`app.py`、`codewhisper/`、`gui/`、`requirements.txt`。它支持 Mac 菜单栏与 Windows 悬浮球，依赖 Python 环境与 FFmpeg。如果你在非 Apple Silicon 设备上、或想用 NVIDIA GPU 加速，可参考旧版：
+
+```bash
+pip install -r requirements.txt
+python app.py
+```
+
+> 原生 macOS 版是当前主线，Python 版不再新增功能。

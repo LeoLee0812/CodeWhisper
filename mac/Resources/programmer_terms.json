@@ -1,0 +1,3613 @@
+{
+  "version": "0.1.0",
+  "description": "CodeWhisper 开发者术语字典",
+  "categories": {
+    "work_terms": {
+      "name": "职场术语",
+      "description": "在企业开发中常见的工作相关术语",
+      "terms": {
+        "排期": {
+          "correct": "排期",
+          "description": "根据需求和开发工作量安排完成时间，在此期间需要按计划推进。若无法按时完成，需要提前向上级或 PM 报风险；若超过截止时间则视为逾期。",
+          "variants": [
+            {
+              "wrong": "排气",
+              "description": "中文音韵误识别"
+            },
+            {
+              "wrong": "拍期",
+              "description": "发音近似"
+            }
+          ]
+        },
+        "逾期": {
+          "correct": "逾期",
+          "description": "任务未在排期截止时间前完成的情况，通常需要说明原因并在后续排期中补充处理。",
+          "variants": [
+            {
+              "wrong": "预期",
+              "description": "中文音韵误识别，最常见"
+            },
+            {
+              "wrong": "于期",
+              "description": "同音字且模型常输出"
+            },
+            {
+              "wrong": "鱼期",
+              "description": "中文发音接近"
+            },
+            {
+              "wrong": "余期",
+              "description": "中文近音字"
+            }
+          ]
+        },
+        "提PR": {
+          "correct": "提PR",
+          "description": "提交 Pull Request",
+          "variants": [
+            {
+              "wrong": "提pr",
+              "description": "小写形式"
+            },
+            {
+              "wrong": "TPR",
+              "description": "术语缩写大小写错误识别"
+            }
+          ]
+        },
+        "提MR": {
+          "correct": "提MR",
+          "description": "提交 Merge Request（GitLab叫提MR，GitHub叫提PR）",
+          "variants": [
+            {
+              "wrong": "提mr",
+              "description": "小写形式"
+            },
+            {
+              "wrong": "TMR",
+              "description": "术语缩写大小写错误识别"
+            }
+          ]
+        },
+        "Mentor": {
+          "correct": "Mentor",
+          "description": "指实习期间的带实习生的导师",
+          "variants": [
+            {
+              "wrong": "门特尔",
+              "description": "中文错误识别"
+            },
+            {
+              "wrong": "门特儿",
+              "description": "中文错误识别"
+            },
+            {
+              "wrong": "mentor",
+              "description": "小写"
+            },
+            {
+              "wrong": "Menter",
+              "description": "错误识别"
+            },
+            {
+              "wrong": "menter",
+              "description": "错误识别"
+            },
+            {
+              "wrong": "门特",
+              "description": "错误识别"
+            }
+          ]
+        },
+        "Leader": {
+          "correct": "Leader",
+          "description": "团队负责人，业务负责人，周会早会主持人",
+          "variants": [
+            {
+              "wrong": "leader",
+              "description": "小写形式"
+            }
+          ]
+        },
+        "提测": {
+          "correct": "提测",
+          "description": "提交测试环节",
+          "variants": [
+            {
+              "wrong": "体测",
+              "description": "同音误识别"
+            },
+            {
+              "wrong": "提侧",
+              "description": "同音误识别"
+            },
+            {
+              "wrong": "T测",
+              "description": "同音误识别"
+            },
+            {
+              "wrong": "题册",
+              "description": "同音误识别"
+            }
+          ]
+        },
+        "联调": {
+          "correct": "联调",
+          "description": "与前端或其他部门对接开发，进行上下游接口调用",
+          "variants": [
+            {
+              "wrong": "连调",
+              "description": "同音误识别"
+            },
+            {
+              "wrong": "联条",
+              "description": "音韵误识别"
+            },
+            {
+              "wrong": "连条",
+              "description": "音韵误识别"
+            }
+          ]
+        },
+        "review": {
+          "correct": "Code review",
+          "description": "Code review（代码审查）就是团队成员在代码合入主分支（master/main）之前，由其他开发者对你的代码进行检查、讨论、提出修改意见的过程。",
+          "variants": [
+            {
+              "wrong": "code review",
+              "description": "小写形式"
+            }
+          ]
+        },
+        "灰度": {
+          "correct": "灰度",
+          "description": "灰度发布",
+          "variants": [
+            {
+              "wrong": "回度",
+              "description": "中文音韵误识别"
+            },
+            {
+              "wrong": "挥度",
+              "description": "中文音韵误识别"
+            },
+            {
+              "wrong": "回读",
+              "description": "中文音韵误识别"
+            },
+            {
+              "wrong": "汇度",
+              "description": "中文音韵误识别"
+            }
+          ]
+        },
+        "验收": {
+          "correct": "验收",
+          "description": "产品或需求最终确认",
+          "variants": [
+            {
+              "wrong": "厌收",
+              "description": "音韵误识别"
+            }
+          ]
+        },
+        "权限": {
+          "correct": "权限",
+          "description": "举例：过工单，过sql审核的权限",
+          "variants": [
+            {
+              "wrong": "全线",
+              "description": "识别错误"
+            }
+          ]
+        },
+        "工单": {
+          "correct": "工单",
+          "description": "工单是团队在开发、测试、上线等流程中，用于追踪任务、变更、问题、审批等事项的标准化记录单。通常包含任务描述、负责人、优先级、状态、相关审核流程（如 SQL 审核、代码审核、发布审批）、以及执行结果。",
+          "variants": [
+            {
+              "wrong": "公单",
+              "description": "错误识别"
+            }
+          ]
+        },
+        "用例": {
+          "correct": "用例",
+          "description": "测试同学对开发完成的功能进行测试，测试时需要准备测试用例。",
+          "variants": [
+            {
+              "wrong": "用力",
+              "description": "错误识别"
+            }
+          ]
+        },
+        "示例": {
+          "correct": "示例",
+          "description": "展示用例",
+          "variants": [
+            {
+              "wrong": "视力",
+              "description": "错误识别"
+            }
+          ]
+        },
+        "代码评审": {
+          "correct": "代码评审",
+          "description": "Code review，团队成员对他人代码进行的检查和讨论",
+          "variants": [
+            {
+              "wrong": "代码评水",
+              "description": "音韵误识别"
+            }
+          ]
+        },
+        "工号": {
+          "correct": "工号",
+          "description": "员工在公司的唯一编号",
+          "variants": [
+            {
+              "wrong": "公号",
+              "description": "近似音识别"
+            }
+          ]
+        },
+        "接口文档": {
+          "correct": "接口文档",
+          "description": "API接口的使用说明文档",
+          "variants": [
+            {
+              "wrong": "接触文档",
+              "description": "错误识别"
+            }
+          ]
+        },
+        "HC": {
+          "correct": "HC",
+          "description": "Headcount，指招聘编制或岗位名额",
+          "variants": []
+        },
+        "OC": {
+          "correct": "OC",
+          "description": "Offer Call，指 HR 或用人方通过电话/口头方式与候选人确认录用意向、薪资及入职相关信息的环节，通常发生在正式书面 offer 发放之前，代表录用基本确定但尚未完成流程",
+          "variants": []
+        },
+        "上线": {
+          "correct": "上线",
+          "description": "将功能或版本发布到生产环境",
+          "variants": []
+        },
+        "业务上手": {
+          "correct": "业务上手",
+          "description": "快速熟悉业务并能独立处理需求的状态",
+          "variants": []
+        },
+        "内存泄漏": {
+          "correct": "内存泄漏",
+          "description": "内存未被释放持续增长，最终可能耗尽资源的问题",
+          "variants": []
+        },
+        "卡点": {
+          "correct": "卡点",
+          "description": "项目推进中的阻塞点或关键依赖",
+          "variants": []
+        },
+        "压测": {
+          "correct": "压测",
+          "description": "压力测试，验证系统在高负载下的表现",
+          "variants": []
+        },
+        "周报": {
+          "correct": "周报",
+          "description": "每周汇报进展和计划的工作报告",
+          "variants": []
+        },
+        "大需求": {
+          "correct": "大需求",
+          "description": "工作量大、影响范围广的重要需求",
+          "variants": []
+        },
+        "推进": {
+          "correct": "推进",
+          "description": "推动需求或问题向前闭环的过程",
+          "variants": []
+        },
+        "日志追踪": {
+          "correct": "日志追踪",
+          "description": "通过日志串联请求链路以定位问题",
+          "variants": []
+        },
+        "服务治理": {
+          "correct": "服务治理",
+          "description": "围绕服务稳定性、规范和自治能力的治理建设",
+          "variants": []
+        },
+        "熔断": {
+          "correct": "熔断",
+          "description": "在故障或超时情况下快速失败以阻断级联影响",
+          "variants": []
+        },
+        "告警": {
+          "correct": "告警",
+          "description": "监控关键指标并在异常时触发告警通知",
+          "variants": []
+        },
+        "背锅": {
+          "correct": "背锅",
+          "description": "承担问题或故障责任的戏称",
+          "variants": []
+        },
+        "补丁": {
+          "correct": "补丁",
+          "description": "紧急修复包或小范围变更以解决问题",
+          "variants": []
+        },
+        "连接池": {
+          "correct": "连接池",
+          "description": "复用连接的池化组件，减少频繁创建销毁开销",
+          "variants": []
+        },
+        "降级": {
+          "correct": "降级",
+          "description": "在异常或高压下关闭非核心功能以保证主流程",
+          "variants": []
+        },
+        "限流": {
+          "correct": "限流",
+          "description": "限制请求速率或并发以防止系统过载",
+          "variants": []
+        },
+        "需求拆解": {
+          "correct": "需求拆解",
+          "description": "将大需求拆分为可执行的子任务和交付物",
+          "variants": []
+        },
+        "复盘": {
+          "correct": "复盘",
+          "description": "项目结束后回顾经验教训和改进点",
+          "variants": []
+        },
+        "评估": {
+          "correct": "评估",
+          "description": "识别并评估可能影响项目的风险",
+          "variants": []
+        }
+      }
+    },
+    "student_terms": {
+      "name": "大学、八股文术语",
+      "description": "面向大学生的编程和开发相关术语",
+      "terms": {
+        "实习": {
+          "correct": "实习",
+          "description": "大学生在企业或组织中进行的实践工作经历",
+          "variants": [
+            {
+              "wrong": "试习",
+              "description": "同音误识别"
+            },
+            {
+              "wrong": "实席",
+              "description": "同音误识别"
+            }
+          ]
+        },
+        "技术栈": {
+          "correct": "技术栈",
+          "description": "指掌握的技术或技能，如熟练掌握Mybatis",
+          "variants": [
+            {
+              "wrong": "技术站",
+              "description": "同音误识别"
+            },
+            {
+              "wrong": "技术战",
+              "description": "同音误识别"
+            }
+          ]
+        },
+        "秋招": {
+          "correct": "秋招",
+          "description": "企业在秋季进行的校园招聘活动，通常在8-10月进行",
+          "variants": [
+            {
+              "wrong": "求招",
+              "description": "同音误识别"
+            }
+          ]
+        },
+        "春招": {
+          "correct": "春招",
+          "description": "企业在春季进行的校园招聘活动，通常在2-4月进行",
+          "variants": [
+            {
+              "wrong": "纯招",
+              "description": "同音误识别"
+            }
+          ]
+        },
+        "校招": {
+          "correct": "校招",
+          "description": "企业到学校进行的校园招聘",
+          "variants": [
+            {
+              "wrong": "校兆",
+              "description": "同音误识别"
+            },
+            {
+              "wrong": "校找",
+              "description": "同音误识别"
+            }
+          ]
+        },
+        "社招": {
+          "correct": "社招",
+          "description": "面向社会人员的招聘，与校招相对",
+          "variants": [
+            {
+              "wrong": "社找",
+              "description": "同音误识别"
+            },
+            {
+              "wrong": "社兆",
+              "description": "同音误识别"
+            }
+          ]
+        },
+        "offer": {
+          "correct": "offer",
+          "description": "企业发给应聘者的正式录用通知",
+          "variants": [
+            {
+              "wrong": "Offer",
+              "description": "首字母大写形式"
+            },
+            {
+              "wrong": "OFFER",
+              "description": "全大写形式"
+            },
+            {
+              "wrong": "奥弗",
+              "description": "中文音韵识别"
+            }
+          ]
+        },
+        "CV": {
+          "correct": "CV",
+          "description": "简历，Curriculum Vitae的简称",
+          "variants": [
+            {
+              "wrong": "cv",
+              "description": "小写形式"
+            },
+            {
+              "wrong": "CVA",
+              "description": "识别错误"
+            }
+          ]
+        },
+        "笔试": {
+          "correct": "笔试",
+          "description": "招聘过程中的笔试考试环节",
+          "variants": [
+            {
+              "wrong": "鄙视",
+              "description": "同音误识别"
+            },
+            {
+              "wrong": "比试",
+              "description": "同音误识别"
+            }
+          ]
+        },
+        "面试": {
+          "correct": "面试",
+          "description": "招聘过程中的面对面或线上面试环节",
+          "variants": [
+            {
+              "wrong": "面世",
+              "description": "正确形式"
+            }
+          ]
+        },
+        "大厂": {
+          "correct": "大厂",
+          "description": "指知名的大型互联网公司",
+          "variants": [
+            {
+              "wrong": "大场",
+              "description": "同音误识别"
+            }
+          ]
+        },
+        "算法": {
+          "correct": "算法",
+          "description": "解决问题的步骤和方法，编程竞赛和面试中的常见话题",
+          "variants": [
+            {
+              "wrong": "蒜法",
+              "description": "同音误识别"
+            },
+            {
+              "wrong": "算发",
+              "description": "同音误识别"
+            }
+          ]
+        },
+        "数据结构": {
+          "correct": "数据结构",
+          "description": "组织和存储数据的方式，与算法紧密相关",
+          "variants": [
+            {
+              "wrong": "数据局造",
+              "description": "音韵误识别"
+            }
+          ]
+        },
+        "刷题": {
+          "correct": "刷题",
+          "description": "反复练习编程题目，特别是在面试准备中",
+          "variants": []
+        },
+        "JVM": {
+          "correct": "JVM",
+          "description": "Java Virtual Machine，负责加载和执行Java字节码的虚拟机",
+          "variants": []
+        },
+        "JMM": {
+          "correct": "JMM",
+          "description": "Java Memory Model，规定并发场景下的可见性和有序性规则",
+          "variants": []
+        },
+        "GC": {
+          "correct": "GC",
+          "description": "Garbage Collection，垃圾回收机制，用于自动释放无用对象占用的内存",
+          "variants": []
+        },
+        "内存模型": {
+          "correct": "内存模型",
+          "description": "并发编程中规定线程间可见性、有序性和原子性的规范",
+          "variants": []
+        },
+        "类加载": {
+          "correct": "类加载",
+          "description": "JVM将字节码文件加载、验证、准备并初始化为运行时类的过程",
+          "variants": []
+        },
+        "双亲委派": {
+          "correct": "双亲委派",
+          "description": "类加载器优先向父加载器请求加载，避免类重复加载并提升安全性",
+          "variants": []
+        },
+        "线程": {
+          "correct": "线程",
+          "description": "程序中的最小调度单元，可并发执行任务",
+          "variants": []
+        },
+        "线程池": {
+          "correct": "线程池",
+          "description": "预创建并复用线程的池化机制，用于降低频繁创建销毁的开销",
+          "variants": []
+        },
+        "并发": {
+          "correct": "并发",
+          "description": "同一时间段处理多个任务，强调对共享资源的协调",
+          "variants": []
+        },
+        "并行": {
+          "correct": "并行",
+          "description": "多个任务在多核或多机上同时执行，真正的同一时间运行",
+          "variants": []
+        },
+        "锁": {
+          "correct": "锁",
+          "description": "控制并发访问共享资源的同步机制",
+          "variants": []
+        },
+        "synchronized": {
+          "correct": "synchronized",
+          "description": "Java关键字，实现内置锁来保证同步",
+          "variants": []
+        },
+        "ReentrantLock": {
+          "correct": "ReentrantLock",
+          "description": "Java并发包提供的可重入显示锁，支持可中断和公平等特性",
+          "variants": []
+        },
+        "CAS": {
+          "correct": "CAS",
+          "description": "Compare-And-Swap，无锁的原子性更新操作",
+          "variants": []
+        },
+        "AQS": {
+          "correct": "AQS",
+          "description": "AbstractQueuedSynchronizer，Java并发框架的同步器基础",
+          "variants": []
+        },
+        "volatile": {
+          "correct": "volatile",
+          "description": "Java关键字，提供可见性并禁止指令重排的轻量级同步手段",
+          "variants": []
+        },
+        "原子性": {
+          "correct": "原子性",
+          "description": "操作不可分割，要么全部成功要么完全不执行",
+          "variants": []
+        },
+        "可见性": {
+          "correct": "可见性",
+          "description": "线程对共享数据的修改能被其他线程及时看到的特性",
+          "variants": []
+        },
+        "有序性": {
+          "correct": "有序性",
+          "description": "代码执行顺序不被指令重排破坏，符合预期的先后关系",
+          "variants": []
+        },
+        "死锁": {
+          "correct": "死锁",
+          "description": "多个线程互相持有对方需要的资源并相互等待导致无法推进",
+          "variants": []
+        },
+        "活锁": {
+          "correct": "活锁",
+          "description": "线程不断改变状态但始终无法完成有用工作的情况",
+          "variants": []
+        },
+        "饥饿": {
+          "correct": "饥饿",
+          "description": "线程长期得不到CPU时间片或资源而无法执行",
+          "variants": []
+        },
+        "索引": {
+          "correct": "索引",
+          "description": "数据库中用于加速查询的数据结构，常见为B+树",
+          "variants": []
+        },
+        "B+树": {
+          "correct": "B+树",
+          "description": "多路平衡树，MySQL索引常用结构，叶子节点有序链表",
+          "variants": []
+        },
+        "事务": {
+          "correct": "事务",
+          "description": "数据库中要么全部成功要么全部回滚的一组操作单元",
+          "variants": []
+        },
+        "ACID": {
+          "correct": "ACID",
+          "description": "事务的四大特性：原子性、一致性、隔离性、持久性",
+          "variants": []
+        },
+        "隔离级别": {
+          "correct": "隔离级别",
+          "description": "数据库并发控制的隔离策略，如读已提交、可重复读等",
+          "variants": []
+        },
+        "MVCC": {
+          "correct": "MVCC",
+          "description": "多版本并发控制，通过版本快照减少读写冲突",
+          "variants": []
+        },
+        "锁机制": {
+          "correct": "锁机制",
+          "description": "数据库用于保护并发访问的数据一致性的一系列锁策略",
+          "variants": []
+        },
+        "慢查询": {
+          "correct": "慢查询",
+          "description": "执行时间超过阈值的SQL，需要分析和优化",
+          "variants": []
+        },
+        "SQL优化": {
+          "correct": "SQL优化",
+          "description": "通过索引、重写语句和统计信息等手段降低SQL开销",
+          "variants": []
+        },
+        "缓存": {
+          "correct": "缓存",
+          "description": "将热点数据存入快速介质以减少访问延迟",
+          "variants": []
+        },
+        "持久化": {
+          "correct": "持久化",
+          "description": "将内存数据落盘，保证服务重启或故障后可恢复",
+          "variants": []
+        },
+        "RDB": {
+          "correct": "RDB",
+          "description": "Redis快照持久化方式，定期生成rdb文件保存数据",
+          "variants": []
+        },
+        "AOF": {
+          "correct": "AOF",
+          "description": "Redis追加日志的持久化方式，记录写操作以便重放",
+          "variants": []
+        },
+        "消息队列": {
+          "correct": "消息队列",
+          "description": "用于异步解耦的消息传递中间件",
+          "variants": []
+        },
+        "异步": {
+          "correct": "异步",
+          "description": "任务调用后不阻塞等待结果，依赖回调或事件通知",
+          "variants": []
+        },
+        "削峰": {
+          "correct": "削峰",
+          "description": "通过排队或缓冲平滑高峰流量的手段",
+          "variants": []
+        },
+        "顺序性": {
+          "correct": "顺序性",
+          "description": "处理或消费顺序与发送顺序保持一致的要求",
+          "variants": []
+        },
+        "幂等": {
+          "correct": "幂等",
+          "description": "同一操作执行多次结果一致，避免重复影响",
+          "variants": [
+            {
+              "wrong": "密等",
+              "description": "音韵误识别"
+            }
+          ]
+        },
+        "重复消费": {
+          "correct": "重复消费",
+          "description": "同一消息被消费多次的情况，需要幂等或去重保障",
+          "variants": []
+        },
+        "分区": {
+          "correct": "分区",
+          "description": "消息队列或数据库按片拆分数据的逻辑单元",
+          "variants": []
+        },
+        "Offset": {
+          "correct": "Offset",
+          "description": "消息队列的消费位点，用于记录读取进度",
+          "variants": []
+        },
+        "SpringCloud": {
+          "correct": "SpringCloud",
+          "description": "构建微服务的Spring生态组件集合",
+          "variants": []
+        },
+        "IOC": {
+          "correct": "IOC",
+          "description": "控制反转，容器负责创建和管理依赖对象",
+          "variants": []
+        },
+        "AOP": {
+          "correct": "AOP",
+          "description": "面向切面编程，用于处理日志、事务等横切关注点",
+          "variants": []
+        },
+        "Bean": {
+          "correct": "Bean",
+          "description": "由Spring容器管理的对象实例",
+          "variants": []
+        },
+        "自动装配": {
+          "correct": "自动装配",
+          "description": "Spring自动注入依赖对象的能力",
+          "variants": []
+        },
+        "微服务": {
+          "correct": "微服务",
+          "description": "将系统拆分为多个可独立部署的小服务架构模式",
+          "variants": []
+        },
+        "TCP": {
+          "correct": "TCP",
+          "description": "面向连接、可靠传输的传输层协议",
+          "variants": []
+        },
+        "UDP": {
+          "correct": "UDP",
+          "description": "无连接、尽力而为的传输层协议，延迟低",
+          "variants": []
+        },
+        "三次握手": {
+          "correct": "三次握手",
+          "description": "TCP建立连接的三步交互流程",
+          "variants": []
+        },
+        "四次挥手": {
+          "correct": "四次挥手",
+          "description": "TCP断开连接的四个阶段",
+          "variants": []
+        },
+        "长连接": {
+          "correct": "长连接",
+          "description": "保持会话的持久连接，减少重复握手开销",
+          "variants": []
+        },
+        "短连接": {
+          "correct": "短连接",
+          "description": "请求完成后立即关闭的连接方式",
+          "variants": []
+        },
+        "KeepAlive": {
+          "correct": "KeepAlive",
+          "description": "TCP或HTTP保活机制，定期探测并维持连接",
+          "variants": []
+        },
+        "负载均衡": {
+          "correct": "负载均衡",
+          "description": "将请求分摊到多个实例或节点以提升吞吐和可用性",
+          "variants": []
+        },
+        "正向代理": {
+          "correct": "正向代理",
+          "description": "代理客户端访问外部资源的代理方式",
+          "variants": []
+        },
+        "分布式": {
+          "correct": "分布式",
+          "description": "系统组件运行在多节点协同完成任务的架构形态",
+          "variants": []
+        },
+        "一致性": {
+          "correct": "一致性",
+          "description": "分布式环境中数据保持一致的属性",
+          "variants": []
+        },
+        "CAP": {
+          "correct": "CAP",
+          "description": "一致性、可用性、分区容忍性的分布式系统权衡定理",
+          "variants": []
+        },
+        "BASE": {
+          "correct": "BASE",
+          "description": "基本可用、软状态、最终一致性的分布式理论",
+          "variants": []
+        },
+        "注册中心": {
+          "correct": "注册中心",
+          "description": "微服务用于服务发现和注册的中心组件",
+          "variants": []
+        },
+        "配置中心": {
+          "correct": "配置中心",
+          "description": "集中存储并动态下发配置的基础设施",
+          "variants": []
+        },
+        "容器": {
+          "correct": "容器",
+          "description": "共享宿主机内核的轻量级隔离运行单元",
+          "variants": []
+        },
+        "Pod": {
+          "correct": "Pod",
+          "description": "Kubernetes中最小的调度和部署单元",
+          "variants": []
+        },
+        "Service": {
+          "correct": "Service",
+          "description": "Kubernetes中为Pod提供稳定访问地址的抽象",
+          "variants": []
+        },
+        "进程": {
+          "correct": "进程",
+          "description": "程序在操作系统中的一次运行实例",
+          "variants": []
+        },
+        "多进程": {
+          "correct": "多进程",
+          "description": "使用多个进程并行处理任务以提升利用率的方式",
+          "variants": []
+        },
+        "多线程": {
+          "correct": "多线程",
+          "description": "单进程内创建多个线程并发执行任务的方式",
+          "variants": []
+        },
+        "进程切换": {
+          "correct": "进程切换",
+          "description": "CPU在不同进程之间调度并保存上下文的过程",
+          "variants": []
+        },
+        "线程切换": {
+          "correct": "线程切换",
+          "description": "同一进程内在不同线程之间进行的调度切换",
+          "variants": []
+        },
+        "上下文切换": {
+          "correct": "上下文切换",
+          "description": "保存当前任务状态并恢复另一个任务状态以实现切换",
+          "variants": []
+        },
+        "程序计数器": {
+          "correct": "程序计数器",
+          "description": "记录下一条将要执行指令地址的寄存器",
+          "variants": []
+        },
+        "PC": {
+          "correct": "PC",
+          "description": "Program Counter，程序计数器的英文缩写",
+          "variants": []
+        },
+        "虚拟内存": {
+          "correct": "虚拟内存",
+          "description": "将物理内存与磁盘结合提供更大地址空间的机制",
+          "variants": []
+        },
+        "物理内存": {
+          "correct": "物理内存",
+          "description": "实际的RAM硬件存储空间",
+          "variants": []
+        },
+        "页表": {
+          "correct": "页表",
+          "description": "映射虚拟地址到物理地址的数据结构",
+          "variants": []
+        },
+        "分页": {
+          "correct": "分页",
+          "description": "将内存划分为固定大小页面以支持虚拟内存的技术",
+          "variants": []
+        },
+        "缺页异常": {
+          "correct": "缺页异常",
+          "description": "访问未加载到内存的页面时触发的中断",
+          "variants": []
+        },
+        "MMU": {
+          "correct": "MMU",
+          "description": "Memory Management Unit，负责地址转换的硬件单元",
+          "variants": []
+        },
+        "Copy On Write": {
+          "correct": "Copy On Write",
+          "description": "写时复制策略，延迟实际拷贝以降低资源开销",
+          "variants": []
+        },
+        "写时复制": {
+          "correct": "写时复制",
+          "description": "写时复制的中文表述，修改时才真正复制数据",
+          "variants": []
+        },
+        "ps": {
+          "correct": "ps",
+          "description": "Linux查看进程信息的命令",
+          "variants": []
+        },
+        "top": {
+          "correct": "top",
+          "description": "动态展示系统进程和资源占用的命令",
+          "variants": []
+        },
+        "htop": {
+          "correct": "htop",
+          "description": "交互式的top替代工具，支持滚动和快捷键",
+          "variants": []
+        },
+        "free": {
+          "correct": "free",
+          "description": "查看内存使用情况的命令",
+          "variants": []
+        },
+        "df": {
+          "correct": "df",
+          "description": "查看磁盘分区空间占用的命令",
+          "variants": []
+        },
+        "du": {
+          "correct": "du",
+          "description": "统计目录或文件占用空间的命令",
+          "variants": []
+        },
+        "netstat": {
+          "correct": "netstat",
+          "description": "查看网络连接、端口和路由信息的命令",
+          "variants": []
+        },
+        "ifconfig": {
+          "correct": "ifconfig",
+          "description": "配置或查看网络接口信息的命令",
+          "variants": []
+        },
+        "ping": {
+          "correct": "ping",
+          "description": "利用ICMP测试网络连通性的工具",
+          "variants": []
+        },
+        "tcpdump": {
+          "correct": "tcpdump",
+          "description": "抓取和分析网络数据包的命令行工具",
+          "variants": []
+        },
+        "kill": {
+          "correct": "kill",
+          "description": "向进程发送信号的命令，常用来终止进程",
+          "variants": []
+        },
+        "SIGTERM": {
+          "correct": "SIGTERM",
+          "description": "用于终止进程的可捕获信号，允许清理资源",
+          "variants": []
+        },
+        "SIGKILL": {
+          "correct": "SIGKILL",
+          "description": "不可捕获的强制终止信号，立即杀死进程",
+          "variants": []
+        },
+        "pgrep": {
+          "correct": "pgrep",
+          "description": "按模式查找并输出进程ID的命令",
+          "variants": []
+        },
+        "PID": {
+          "correct": "PID",
+          "description": "Process ID，操作系统分配给进程的唯一标识",
+          "variants": []
+        },
+        "socket": {
+          "correct": "socket",
+          "description": "网络通信的套接字抽象，支持TCP/UDP等协议",
+          "variants": []
+        },
+        "SO_KEEPALIVE": {
+          "correct": "SO_KEEPALIVE",
+          "description": "Socket保活选项，用于探测连接是否存活",
+          "variants": []
+        },
+        "SYN": {
+          "correct": "SYN",
+          "description": "TCP连接请求的标志位",
+          "variants": []
+        },
+        "ACK": {
+          "correct": "ACK",
+          "description": "TCP确认应答标志位，表示收到数据",
+          "variants": []
+        },
+        "FIN": {
+          "correct": "FIN",
+          "description": "TCP断开连接时发送的终止标志位",
+          "variants": []
+        },
+        "RST": {
+          "correct": "RST",
+          "description": "TCP复位标志位，用于异常中断连接",
+          "variants": []
+        },
+        "ESTABLISHED": {
+          "correct": "ESTABLISHED",
+          "description": "TCP连接已建立的状态",
+          "variants": []
+        },
+        "LISTEN": {
+          "correct": "LISTEN",
+          "description": "TCP监听状态，等待客户端发起连接",
+          "variants": []
+        },
+        "心跳机制": {
+          "correct": "心跳机制",
+          "description": "周期性发送探测包判断连接或节点是否存活",
+          "variants": []
+        },
+        "四元组": {
+          "correct": "四元组",
+          "description": "TCP连接由源IP、源端口、目的IP、目的端口组成的标识",
+          "variants": []
+        },
+        "时间复杂度": {
+          "correct": "时间复杂度",
+          "description": "描述算法随输入规模增长的时间开销量级",
+          "variants": []
+        },
+        "空间复杂度": {
+          "correct": "空间复杂度",
+          "description": "描述算法所需额外存储空间随输入规模的变化",
+          "variants": []
+        },
+        "排序算法": {
+          "correct": "排序算法",
+          "description": "将序列重新排列的算法总称",
+          "variants": []
+        },
+        "快速排序": {
+          "correct": "快速排序",
+          "description": "基于分治的高效排序算法，平均性能优秀",
+          "variants": []
+        },
+        "归并排序": {
+          "correct": "归并排序",
+          "description": "分治合并的稳定排序算法，适合大数据量",
+          "variants": []
+        },
+        "堆排序": {
+          "correct": "堆排序",
+          "description": "利用堆数据结构完成选择的排序算法",
+          "variants": []
+        },
+        "冒泡排序": {
+          "correct": "冒泡排序",
+          "description": "通过交换相邻逆序元素逐步将最大或最小元素冒出的排序",
+          "variants": []
+        },
+        "插入排序": {
+          "correct": "插入排序",
+          "description": "逐个将元素插入到已排序序列中的简单排序算法",
+          "variants": []
+        },
+        "选择排序": {
+          "correct": "选择排序",
+          "description": "每轮选择最小或最大元素放到正确位置的排序算法",
+          "variants": []
+        },
+        "稳定排序": {
+          "correct": "稳定排序",
+          "description": "排序后相等元素的相对顺序保持不变",
+          "variants": []
+        },
+        "不稳定排序": {
+          "correct": "不稳定排序",
+          "description": "排序后相等元素的相对顺序可能发生改变",
+          "variants": []
+        },
+        "递归": {
+          "correct": "递归",
+          "description": "函数调用自身来解决问题的编程技巧",
+          "variants": []
+        },
+        "分治": {
+          "correct": "分治",
+          "description": "将问题拆分为子问题分别解决再合并的算法思想",
+          "variants": []
+        },
+        "位运算": {
+          "correct": "位运算",
+          "description": "直接对二进制位进行的与、或、异或、移位等操作",
+          "variants": []
+        },
+        "补码": {
+          "correct": "补码",
+          "description": "计算机中有符号整数的二进制表示方式",
+          "variants": []
+        },
+        "二进制": {
+          "correct": "二进制",
+          "description": "以2为基数的数制，是计算机底层的数据表示",
+          "variants": []
+        },
+        "字符串相加": {
+          "correct": "字符串相加",
+          "description": "将多段字符串拼接成一个新字符串的操作",
+          "variants": []
+        },
+        "存储引擎": {
+          "correct": "存储引擎",
+          "description": "数据库底层管理数据存储和索引的实现方式",
+          "variants": []
+        },
+        "InnoDB": {
+          "correct": "InnoDB",
+          "description": "MySQL默认的支持事务和行级锁的存储引擎",
+          "variants": []
+        },
+        "MyISAM": {
+          "correct": "MyISAM",
+          "description": "MySQL早期的非事务型存储引擎，读性能较好",
+          "variants": []
+        },
+        "MEMORY": {
+          "correct": "MEMORY",
+          "description": "基于内存表的MySQL存储引擎，速度快但数据易失",
+          "variants": []
+        },
+        "行级锁": {
+          "correct": "行级锁",
+          "description": "锁定数据表中的单行记录，提升并发度",
+          "variants": []
+        },
+        "表锁": {
+          "correct": "表锁",
+          "description": "锁定整张表的并发控制方式，冲突范围较大",
+          "variants": []
+        },
+        "B树": {
+          "correct": "B树",
+          "description": "平衡多路查找树，常用于索引实现",
+          "variants": []
+        },
+        "聚簇索引": {
+          "correct": "聚簇索引",
+          "description": "数据和主键索引存储在同一结构中的索引方式",
+          "variants": []
+        },
+        "非聚簇索引": {
+          "correct": "非聚簇索引",
+          "description": "索引与数据分离存储，需要回表查询数据",
+          "variants": []
+        },
+        "二级索引": {
+          "correct": "二级索引",
+          "description": "除主键外的辅助索引，用于加速特定查询",
+          "variants": []
+        },
+        "联合索引": {
+          "correct": "联合索引",
+          "description": "由多个字段组成的复合索引",
+          "variants": []
+        },
+        "前缀索引": {
+          "correct": "前缀索引",
+          "description": "只索引字符串前部分内容以缩小索引大小的方式",
+          "variants": []
+        },
+        "索引失效": {
+          "correct": "索引失效",
+          "description": "查询未能利用索引而退化为全表扫描的情况",
+          "variants": []
+        },
+        "最左匹配原则": {
+          "correct": "最左匹配原则",
+          "description": "联合索引按照从左到右的顺序匹配字段的规则",
+          "variants": []
+        },
+        "隐式类型转换": {
+          "correct": "隐式类型转换",
+          "description": "数据库自动转换数据类型，可能导致索引失效",
+          "variants": []
+        },
+        "读未提交": {
+          "correct": "读未提交",
+          "description": "最低事务隔离级别，可能出现脏读",
+          "variants": []
+        },
+        "读提交": {
+          "correct": "读提交",
+          "description": "每次读取都能看到已提交数据，避免脏读",
+          "variants": []
+        },
+        "可重复读": {
+          "correct": "可重复读",
+          "description": "同一事务内多次读取结果保持一致，MySQL默认级别",
+          "variants": []
+        },
+        "串行化": {
+          "correct": "串行化",
+          "description": "最高事务隔离级别，事务顺序执行避免并发冲突",
+          "variants": []
+        },
+        "脏读": {
+          "correct": "脏读",
+          "description": "读取到其他事务未提交的数据",
+          "variants": []
+        },
+        "不可重复读": {
+          "correct": "不可重复读",
+          "description": "同一事务多次读取结果不一致的现象",
+          "variants": []
+        },
+        "幻读": {
+          "correct": "幻读",
+          "description": "同一事务重复查询时行数发生变化的现象",
+          "variants": []
+        },
+        "Read View": {
+          "correct": "Read View",
+          "description": "MVCC中生成一致性快照的视图，用于控制可见性",
+          "variants": []
+        },
+        "redo log": {
+          "correct": "redo log",
+          "description": "InnoDB用于崩溃恢复的重做日志，记录物理修改",
+          "variants": []
+        },
+        "undo log": {
+          "correct": "undo log",
+          "description": "记录数据修改前镜像，用于回滚或MVCC的日志",
+          "variants": []
+        },
+        "String": {
+          "correct": "String",
+          "description": "Redis基础数据类型，存储字符串或数字",
+          "variants": []
+        },
+        "Hash": {
+          "correct": "Hash",
+          "description": "Redis哈希结构，适合存储对象字段值",
+          "variants": []
+        },
+        "List": {
+          "correct": "List",
+          "description": "Redis列表结构，支持两端插入弹出的序列",
+          "variants": []
+        },
+        "Set": {
+          "correct": "Set",
+          "description": "Redis无序集合类型，元素唯一",
+          "variants": []
+        },
+        "ZSet": {
+          "correct": "ZSet",
+          "description": "Redis有序集合，按分值排序的集合结构",
+          "variants": []
+        },
+        "BitMap": {
+          "correct": "BitMap",
+          "description": "Redis按位存储统计的结构，适合布尔计数场景",
+          "variants": []
+        },
+        "HyperLogLog": {
+          "correct": "HyperLogLog",
+          "description": "Redis基数估计结构，用极小空间估算不重复元素数量",
+          "variants": []
+        },
+        "GEO": {
+          "correct": "GEO",
+          "description": "Redis地理位置数据结构，支持位置存储与范围查询",
+          "variants": []
+        },
+        "Stream": {
+          "correct": "Stream",
+          "description": "Redis流式数据结构，支持消费组和消息队列场景",
+          "variants": []
+        },
+        "热key": {
+          "correct": "热key",
+          "description": "被高频访问的热点缓存键，容易引发集中压力",
+          "variants": []
+        },
+        "内存淘汰机制": {
+          "correct": "内存淘汰机制",
+          "description": "Redis在内存不足时用于回收键的策略，如LRU等",
+          "variants": []
+        },
+        "LRU": {
+          "correct": "LRU",
+          "description": "Least Recently Used，最近最少使用的缓存淘汰算法",
+          "variants": []
+        },
+        "分片": {
+          "correct": "分片",
+          "description": "将数据拆分到多个节点或实例以提升容量和吞吐",
+          "variants": []
+        },
+        "SDS": {
+          "correct": "SDS",
+          "description": "Simple Dynamic String，Redis的简单动态字符串实现",
+          "variants": []
+        },
+        "二进制安全": {
+          "correct": "二进制安全",
+          "description": "字符串存储不以\\0结尾，可保存任意字节数据的特性",
+          "variants": []
+        },
+        "ArrayList": {
+          "correct": "ArrayList",
+          "description": "基于动态数组实现的Java列表，查询快插入扩容有成本",
+          "variants": []
+        },
+        "Vector": {
+          "correct": "Vector",
+          "description": "早期线程安全的可增长数组实现",
+          "variants": []
+        },
+        "HashMap": {
+          "correct": "HashMap",
+          "description": "基于哈希表的键值映射，支持快速查找",
+          "variants": []
+        },
+        "扩容": {
+          "correct": "扩容",
+          "description": "数组或哈希表容量不足时增加容量并迁移数据的过程",
+          "variants": []
+        },
+        "负载因子": {
+          "correct": "负载因子",
+          "description": "哈希表元素数量与桶数量的比例，影响扩容时机",
+          "variants": []
+        },
+        "hash冲突": {
+          "correct": "hash冲突",
+          "description": "不同键映射到同一桶的位置重合，需用链表或红黑树解决",
+          "variants": []
+        },
+        "rehash": {
+          "correct": "rehash",
+          "description": "哈希表扩容或迁移时重新计算键位置的过程",
+          "variants": []
+        },
+        "线程安全": {
+          "correct": "线程安全",
+          "description": "并发访问下依然保持正确性的属性",
+          "variants": []
+        },
+        "MQ": {
+          "correct": "MQ",
+          "description": "Message Queue的缩写，指消息队列中间件",
+          "variants": []
+        },
+        "RocketMQ": {
+          "correct": "RocketMQ",
+          "description": "阿里开源的分布式消息队列系统",
+          "variants": []
+        },
+        "RabbitMQ": {
+          "correct": "RabbitMQ",
+          "description": "基于AMQP协议的消息队列实现",
+          "variants": []
+        },
+        "消息积压": {
+          "correct": "消息积压",
+          "description": "消费者处理能力不足导致队列堆积消息的情况",
+          "variants": []
+        },
+        "消息可靠性": {
+          "correct": "消息可靠性",
+          "description": "保证消息在传输和存储过程中不丢失的机制",
+          "variants": []
+        },
+        "broker": {
+          "correct": "broker",
+          "description": "消息队列的服务节点，负责存储和转发消息",
+          "variants": []
+        },
+        "ack": {
+          "correct": "ack",
+          "description": "消费者确认消息已处理的应答标记",
+          "variants": []
+        },
+        "副本": {
+          "correct": "副本",
+          "description": "数据的复制版本，用于容错和高可用",
+          "variants": []
+        },
+        "leader": {
+          "correct": "leader",
+          "description": "主副本角色，负责对外提供读写服务",
+          "variants": []
+        },
+        "partition": {
+          "correct": "partition",
+          "description": "分区，Kafka等系统用于水平扩展的基本单元",
+          "variants": []
+        },
+        "同步发送": {
+          "correct": "同步发送",
+          "description": "发送消息后等待确认再返回的模式",
+          "variants": []
+        },
+        "异步发送": {
+          "correct": "异步发送",
+          "description": "发送消息后不阻塞等待，用回调或事件获取结果",
+          "variants": []
+        },
+        "单向发送": {
+          "correct": "单向发送",
+          "description": "只发送不等待响应的消息模式",
+          "variants": []
+        },
+        "Raft": {
+          "correct": "Raft",
+          "description": "常用的分布式一致性算法，包含选主和日志复制",
+          "variants": []
+        },
+        "Leader选举": {
+          "correct": "Leader选举",
+          "description": "集群通过投票选出领导者节点的过程",
+          "variants": []
+        },
+        "日志复制": {
+          "correct": "日志复制",
+          "description": "一致性算法中将主节点日志同步到从节点的步骤",
+          "variants": []
+        },
+        "脑裂": {
+          "correct": "脑裂",
+          "description": "集群分区导致出现多个主节点并行提供服务的异常",
+          "variants": []
+        },
+        "设计模式": {
+          "correct": "设计模式",
+          "description": "可复用的面向对象设计经验总结和模板",
+          "variants": []
+        },
+        "单例": {
+          "correct": "单例",
+          "description": "保证一个类只有一个实例并全局访问的设计模式",
+          "variants": []
+        },
+        "工厂": {
+          "correct": "工厂",
+          "description": "封装对象创建逻辑的设计模式族",
+          "variants": []
+        },
+        "策略": {
+          "correct": "策略",
+          "description": "将算法封装为可互换策略以简化分支的模式",
+          "variants": []
+        },
+        "观察者": {
+          "correct": "观察者",
+          "description": "发布者状态变更时通知订阅者的设计模式",
+          "variants": []
+        },
+        "责任链": {
+          "correct": "责任链",
+          "description": "请求沿链条依次传递由节点决定处理与否的模式",
+          "variants": []
+        },
+        "安全": {
+          "correct": "安全",
+          "description": "保护系统和数据免受未授权访问或攻击的总体要求",
+          "variants": []
+        },
+        "鉴权": {
+          "correct": "鉴权",
+          "description": "验证用户或服务访问权限的过程",
+          "variants": []
+        },
+        "认证": {
+          "correct": "认证",
+          "description": "确认访问者身份的过程，如密码、短信或证书",
+          "variants": []
+        },
+        "JWT": {
+          "correct": "JWT",
+          "description": "JSON Web Token，用于无状态的身份凭证",
+          "variants": []
+        },
+        "OAuth": {
+          "correct": "OAuth",
+          "description": "开放授权协议，允许用户授权第三方访问资源",
+          "variants": []
+        },
+        "XSS": {
+          "correct": "XSS",
+          "description": "跨站脚本攻击，在页面注入恶意脚本获取用户信息",
+          "variants": []
+        },
+        "CSRF": {
+          "correct": "CSRF",
+          "description": "跨站请求伪造攻击，利用已登录身份发起恶意请求",
+          "variants": []
+        },
+        "监控": {
+          "correct": "监控",
+          "description": "采集指标、分析和告警以保障系统可观测性",
+          "variants": []
+        },
+        "链路追踪": {
+          "correct": "链路追踪",
+          "description": "记录分布式请求的调用链以便定位性能和故障",
+          "variants": []
+        },
+        "埋点": {
+          "correct": "埋点",
+          "description": "在代码中预先插入数据采集逻辑以便统计分析",
+          "variants": []
+        },
+        "告警": {
+          "correct": "告警",
+          "description": "监控发现异常后向相关人员发出的通知",
+          "variants": []
+        },
+        "高并发": {
+          "correct": "高并发",
+          "description": "需要同时处理大量请求的场景或能力",
+          "variants": []
+        },
+        "高可用": {
+          "correct": "高可用",
+          "description": "系统持续提供服务并快速恢复的能力",
+          "variants": []
+        },
+        "高性能": {
+          "correct": "高性能",
+          "description": "系统以低延迟和高吞吐运行的能力",
+          "variants": []
+        },
+        "扩展性": {
+          "correct": "扩展性",
+          "description": "系统按需水平或垂直扩容的能力",
+          "variants": []
+        },
+        "容灾": {
+          "correct": "容灾",
+          "description": "通过冗余和故障切换应对机房或节点故障的能力",
+          "variants": []
+        },
+        "灰度发布": {
+          "correct": "灰度发布",
+          "description": "逐步放量验证的新版本发布策略，降低上线风险",
+          "variants": []
+        },
+        "211": {
+          "correct": "211",
+          "description": "国家重点建设的高校，常作为招聘或考研的学历参考",
+          "variants": []
+        },
+        "985": {
+          "correct": "985",
+          "description": "国家重点支持的高水平大学项目，常被当作学历标签",
+          "variants": []
+        },
+        "HR面": {
+          "correct": "HR面",
+          "description": "由 HR 进行的面试轮次，关注意向、薪资、入职时间等非技术问题",
+          "variants": []
+        },
+        "Offer Call": {
+          "correct": "Offer Call",
+          "description": "HR 致电告知或确认 Offer 的沟通环节",
+          "variants": []
+        },
+        "SP": {
+          "correct": "SP",
+          "description": "Special Offer，较普通 Offer 更高一档或特批的录用名额",
+          "variants": []
+        },
+        "SSP": {
+          "correct": "SSP",
+          "description": "Super Special Offer，待遇或级别高于 SP 的顶级 Offer",
+          "variants": []
+        },
+        "上岸": {
+          "correct": "上岸",
+          "description": "俗称成功拿到 Offer 或通过关键考核",
+          "variants": []
+        },
+        "业务面": {
+          "correct": "业务面",
+          "description": "业务团队或技术线负责人进行的面试，关注岗位匹配度",
+          "variants": []
+        },
+        "保底": {
+          "correct": "保底",
+          "description": "为稳妥准备的保险选择或低风险 Offer",
+          "variants": []
+        },
+        "卡学历": {
+          "correct": "卡学历",
+          "description": "招聘或选拔环节设置的学历、学校背景硬性筛选",
+          "variants": []
+        },
+        "卷": {
+          "correct": "卷",
+          "description": "竞争激烈、大家都投入过多精力的状态",
+          "variants": []
+        },
+        "双非": {
+          "correct": "双非",
+          "description": "非 211、非 985 院校背景的简称",
+          "variants": []
+        },
+        "复试": {
+          "correct": "复试",
+          "description": "第二轮或后续复核的面试/考试环节",
+          "variants": []
+        },
+        "大冤种": {
+          "correct": "大冤种",
+          "description": "在求职或录取中自嘲吃亏、待遇不公的说法",
+          "variants": []
+        },
+        "学历厂": {
+          "correct": "学历厂",
+          "description": "对学历要求很高、偏好名校背景的公司称呼",
+          "variants": []
+        },
+        "寄了": {
+          "correct": "寄了",
+          "description": "戏称失败或凉了，没拿到预期结果",
+          "variants": []
+        },
+        "已读不回": {
+          "correct": "已读不回",
+          "description": "消息被查看但长时间未回复的情况",
+          "variants": []
+        },
+        "年包": {
+          "correct": "年包",
+          "description": "按年度计算的薪酬总包，含基本薪资和奖金等",
+          "variants": []
+        },
+        "开奖": {
+          "correct": "开奖",
+          "description": "等待并公布笔试、面试或抽签结果的戏称",
+          "variants": []
+        },
+        "心态炸了": {
+          "correct": "心态炸了",
+          "description": "因求职受挫情绪崩溃的状态",
+          "variants": []
+        },
+        "总包": {
+          "correct": "总包",
+          "description": "总薪酬包，包含工资、奖金、股票等组成部分",
+          "variants": []
+        },
+        "意向书": {
+          "correct": "意向书",
+          "description": "正式 Offer 前出具的录用意向函",
+          "variants": []
+        },
+        "技术面": {
+          "correct": "技术面",
+          "description": "主要考察技术能力的面试轮次",
+          "variants": []
+        },
+        "拉满": {
+          "correct": "拉满",
+          "description": "全力以赴或达到最高水平的状态",
+          "variants": []
+        },
+        "摆烂": {
+          "correct": "摆烂",
+          "description": "放弃努力、不再投入准备的消极状态",
+          "variants": []
+        },
+        "日常实习": {
+          "correct": "日常实习",
+          "description": "在学期间的长期实习岗位，通常按周安排",
+          "variants": []
+        },
+        "暑期实习": {
+          "correct": "暑期实习",
+          "description": "暑假期间全职或集中的实习项目",
+          "variants": []
+        },
+        "月包": {
+          "correct": "月包",
+          "description": "按月计算的薪酬包或补贴",
+          "variants": []
+        },
+        "横向对比": {
+          "correct": "横向对比",
+          "description": "在多个 Offer 或机会间进行条件和体验的比较",
+          "variants": []
+        },
+        "毁意向": {
+          "correct": "毁意向",
+          "description": "毁约或撤回已签署的意向书/Offer",
+          "variants": []
+        },
+        "沉淀": {
+          "correct": "沉淀",
+          "description": "通过项目或学习积累经验与可复用成果",
+          "variants": []
+        },
+        "泡池子": {
+          "correct": "泡池子",
+          "description": "投递后在人才库等待后续联系的状态",
+          "variants": []
+        },
+        "焦虑": {
+          "correct": "焦虑",
+          "description": "求职过程中焦躁不安、担心结果的情绪",
+          "variants": []
+        },
+        "白菜价": {
+          "correct": "白菜价",
+          "description": "薪资待遇非常低的报价",
+          "variants": []
+        },
+        "破防": {
+          "correct": "破防",
+          "description": "被刺激到难以接受，情绪失守的状态",
+          "variants": []
+        },
+        "秒挂": {
+          "correct": "秒挂",
+          "description": "面试或沟通很快被拒绝或终止",
+          "variants": []
+        },
+        "简历挂": {
+          "correct": "简历挂",
+          "description": "在简历筛选阶段被淘汰",
+          "variants": []
+        },
+        "简历筛选": {
+          "correct": "简历筛选",
+          "description": "HR 或用人部门对简历进行初步筛查",
+          "variants": []
+        },
+        "终面": {
+          "correct": "终面",
+          "description": "最终的面试轮次，通常由负责人或高层进行",
+          "variants": []
+        },
+        "舔简历": {
+          "correct": "舔简历",
+          "description": "过度包装或粉饰简历的自嘲说法",
+          "variants": []
+        },
+        "薪资倒挂": {
+          "correct": "薪资倒挂",
+          "description": "后入职或级别低的员工薪资高于老员工的现象",
+          "variants": []
+        },
+        "血亏": {
+          "correct": "血亏",
+          "description": "付出与回报极不匹配、损失巨大的感受",
+          "variants": []
+        },
+        "被拷打": {
+          "correct": "被拷打",
+          "description": "面试中被高强度追问或挑战的情形",
+          "variants": []
+        },
+        "被捞": {
+          "correct": "被捞",
+          "description": "被 HR 主动联系或从候选池重新拉起",
+          "variants": []
+        },
+        "被教育": {
+          "correct": "被教育",
+          "description": "在面试中被严厉指出问题或批评",
+          "variants": []
+        },
+        "被鸽": {
+          "correct": "被鸽",
+          "description": "面试或入职被对方临时取消或延后",
+          "variants": []
+        },
+        "躺平": {
+          "correct": "躺平",
+          "description": "选择不再卷或主动竞争的态度",
+          "variants": []
+        },
+        "转正": {
+          "correct": "转正",
+          "description": "实习或试用结束转为正式录用",
+          "variants": []
+        },
+        "转正率": {
+          "correct": "转正率",
+          "description": "实习生或试用期转正的比例",
+          "variants": []
+        },
+        "门槛": {
+          "correct": "门槛",
+          "description": "进入岗位的最低要求，如学历或经验",
+          "variants": []
+        },
+        "面评": {
+          "correct": "面评",
+          "description": "面试官对候选人的评价记录",
+          "variants": []
+        }
+      }
+    },
+    "language": {
+      "name": "编程语言",
+      "description": "各种编程语言及其正确表达形式",
+      "terms": {
+        "Python": {
+          "correct": "Python",
+          "description": "Python 编程语言",
+          "variants": [
+            {
+              "wrong": "python",
+              "description": "小写形式"
+            },
+            {
+              "wrong": "派森",
+              "description": "中文音韵识别"
+            }
+          ]
+        },
+        "JavaScript": {
+          "correct": "JavaScript",
+          "description": "JavaScript 编程语言",
+          "variants": [
+            {
+              "wrong": "javascript",
+              "description": "小写形式"
+            },
+            {
+              "wrong": "java script",
+              "description": "英文分隔"
+            }
+          ]
+        },
+        "TypeScript": {
+          "correct": "TypeScript",
+          "description": "TypeScript 编程语言",
+          "variants": [
+            {
+              "wrong": "typescript",
+              "description": "小写形式"
+            },
+            {
+              "wrong": "type script",
+              "description": "英文分隔"
+            }
+          ]
+        },
+        "Go": {
+          "correct": "Go",
+          "description": "Go 编程语言",
+          "variants": [
+            {
+              "wrong": "go",
+              "description": "小写形式"
+            },
+            {
+              "wrong": "golang",
+              "description": "全名形式"
+            },
+            {
+              "wrong": "够浪",
+              "description": "中文音韵识别"
+            }
+          ]
+        },
+        "Rust": {
+          "correct": "Rust",
+          "description": "Rust 编程语言",
+          "variants": [
+            {
+              "wrong": "rust",
+              "description": "小写形式"
+            }
+          ]
+        },
+        "Java": {
+          "correct": "Java",
+          "description": "Java 编程语言",
+          "variants": [
+            {
+              "wrong": "java",
+              "description": "小写形式"
+            },
+            {
+              "wrong": "爪哇",
+              "description": "中文音韵识别"
+            },
+            {
+              "wrong": "加瓦",
+              "description": "中文音韵识别"
+            },
+            {
+              "wrong": "佳娃",
+              "description": "中文音韵识别"
+            }
+          ]
+        },
+        "C++": {
+          "correct": "C++",
+          "description": "C++ 编程语言",
+          "variants": [
+            {
+              "wrong": "C加加",
+              "description": "中英混合"
+            },
+            {
+              "wrong": "c加加",
+              "description": "小写中英混合"
+            }
+          ]
+        },
+        "C#": {
+          "correct": "C#",
+          "description": "C# 编程语言",
+          "variants": [
+            {
+              "wrong": "c sharp",
+              "description": "拼写形式"
+            },
+            {
+              "wrong": "C sharp",
+              "description": "拼写形式"
+            }
+          ]
+        },
+        "PHP": {
+          "correct": "PHP",
+          "description": "PHP 编程语言",
+          "variants": [
+            {
+              "wrong": "php",
+              "description": "小写形式"
+            }
+          ]
+        },
+        "Ruby": {
+          "correct": "Ruby",
+          "description": "Ruby 编程语言",
+          "variants": [
+            {
+              "wrong": "ruby",
+              "description": "小写形式"
+            }
+          ]
+        },
+        "Kotlin": {
+          "correct": "Kotlin",
+          "description": "Kotlin 编程语言",
+          "variants": [
+            {
+              "wrong": "kotlin",
+              "description": "小写形式"
+            },
+            {
+              "wrong": "寇特琳",
+              "description": "按中文音韵错误识别"
+            }
+          ]
+        }
+      }
+    },
+    "tools": {
+      "name": "开发工具",
+      "description": "代码编辑器、IDE 和开发工具",
+      "terms": {
+        "IDEA": {
+          "correct": "IDEA",
+          "description": "JetBrains 开发的 Java IDE",
+          "variants": [
+            {
+              "wrong": "idea",
+              "description": "小写形式"
+            },
+            {
+              "wrong": "爱迪尔",
+              "description": "中文"
+            },
+            {
+              "wrong": "艾迪尔",
+              "description": "中文"
+            },
+            {
+              "wrong": "艾迪儿",
+              "description": "中文"
+            },
+            {
+              "wrong": "爱迪儿",
+              "description": "中文"
+            }
+          ]
+        },
+        "VSCode": {
+          "correct": "VSCode",
+          "description": "Microsoft 开发的轻量级代码编辑器",
+          "variants": [
+            {
+              "wrong": "vscode",
+              "description": "小写形式"
+            },
+            {
+              "wrong": "vs code",
+              "description": "英文分隔"
+            },
+            {
+              "wrong": "VS Code",
+              "description": "大小写变体"
+            }
+          ]
+        },
+        "WebStorm": {
+          "correct": "WebStorm",
+          "description": "JetBrains 开发的 JavaScript IDE",
+          "variants": [
+            {
+              "wrong": "webstorm",
+              "description": "小写形式"
+            },
+            {
+              "wrong": "web storm",
+              "description": "英文分隔"
+            }
+          ]
+        },
+        "PyCharm": {
+          "correct": "PyCharm",
+          "description": "JetBrains 开发的 Python IDE",
+          "variants": [
+            {
+              "wrong": "pycharm",
+              "description": "小写形式"
+            },
+            {
+              "wrong": "py charm",
+              "description": "英文分隔"
+            }
+          ]
+        },
+        "Goland": {
+          "correct": "Goland",
+          "description": "JetBrains 开发的 Go IDE",
+          "variants": [
+            {
+              "wrong": "goland",
+              "description": "小写形式"
+            },
+            {
+              "wrong": "go land",
+              "description": "英文分隔"
+            }
+          ]
+        },
+        "Vim": {
+          "correct": "Vim",
+          "description": "高效的文本编辑器",
+          "variants": [
+            {
+              "wrong": "vim",
+              "description": "小写形式"
+            },
+            {
+              "wrong": "VIM",
+              "description": "全大写形式"
+            }
+          ]
+        },
+        "Emacs": {
+          "correct": "Emacs",
+          "description": "强大的文本编辑器",
+          "variants": [
+            {
+              "wrong": "emacs",
+              "description": "小写形式"
+            }
+          ]
+        },
+        "Postman": {
+          "correct": "Postman",
+          "description": "API调试和测试工具",
+          "variants": [
+            {
+              "wrong": "postman",
+              "description": "小写形式"
+            },
+            {
+              "wrong": "邮差",
+              "description": "字面翻译"
+            }
+          ]
+        },
+        "master": {
+          "correct": "master",
+          "description": "Git的主分支，通常是生产代码所在分支",
+          "variants": [
+            {
+              "wrong": "Master",
+              "description": "首字母大写"
+            },
+            {
+              "wrong": "MASTER",
+              "description": "全大写"
+            }
+          ]
+        },
+        "分支": {
+          "correct": "分支",
+          "description": "Git中从主分支衍生出来的代码分支",
+          "variants": [
+            {
+              "wrong": "分枝",
+              "description": "近似字"
+            }
+          ]
+        }
+      }
+    },
+    "concept": {
+      "name": "技术概念",
+      "description": "通用的技术概念和原则",
+      "terms": {
+        "API": {
+          "correct": "API",
+          "description": "应用程序编程接口",
+          "variants": [
+            {
+              "wrong": "api",
+              "description": "小写形式"
+            }
+          ]
+        },
+        "REST": {
+          "correct": "REST",
+          "description": "表现层状态转移架构风格",
+          "variants": [
+            {
+              "wrong": "rest",
+              "description": "小写形式"
+            }
+          ]
+        },
+        "RESTful": {
+          "correct": "RESTful",
+          "description": "遵循 REST 风格的设计",
+          "variants": [
+            {
+              "wrong": "restful",
+              "description": "小写形式"
+            },
+            {
+              "wrong": "REST4",
+              "description": "错误识别"
+            }
+          ]
+        },
+        "GraphQL": {
+          "correct": "GraphQL",
+          "description": "查询语言和运行时",
+          "variants": [
+            {
+              "wrong": "graphql",
+              "description": "小写形式"
+            },
+            {
+              "wrong": "graph ql",
+              "description": "英文分隔"
+            }
+          ]
+        },
+        "SQL": {
+          "correct": "SQL",
+          "description": "结构化查询语言",
+          "variants": [
+            {
+              "wrong": "circle",
+              "description": "发音相似"
+            },
+            {
+              "wrong": "sql",
+              "description": "小写形式"
+            },
+            {
+              "wrong": "sequel",
+              "description": "发音相似"
+            },
+            {
+              "wrong": "Circle",
+              "description": "发音相似"
+            }
+          ]
+        },
+        "ORM": {
+          "correct": "ORM",
+          "description": "对象关系映射",
+          "variants": [
+            {
+              "wrong": "orm",
+              "description": "小写形式"
+            }
+          ]
+        },
+        "CRUD": {
+          "correct": "CRUD",
+          "description": "基本数据操作",
+          "variants": [
+            {
+              "wrong": "crud",
+              "description": "小写形式"
+            }
+          ]
+        },
+        "MVC": {
+          "correct": "MVC",
+          "description": "模型-视图-控制器架构",
+          "variants": [
+            {
+              "wrong": "mvc",
+              "description": "小写形式"
+            }
+          ]
+        },
+        "日志": {
+          "correct": "日志",
+          "description": "记录程序运行过程中的过程",
+          "variants": [
+            {
+              "wrong": "日值",
+              "description": "中文错误识别"
+            },
+            {
+              "wrong": "日治",
+              "description": "中文错误识别"
+            },
+            {
+              "wrong": "日止",
+              "description": "中文错误识别"
+            }
+          ]
+        },
+        "Token": {
+          "correct": "Token",
+          "description": "用于身份验证和授权的令牌，常用于API请求的身份验证",
+          "variants": [
+            {
+              "wrong": "token",
+              "description": "小写形式"
+            },
+            {
+              "wrong": "令牌",
+              "description": "中文翻译"
+            }
+          ]
+        },
+        "Header": {
+          "correct": "Header",
+          "description": "HTTP请求或响应的头部信息，包含元数据",
+          "variants": [
+            {
+              "wrong": "header",
+              "description": "小写形式"
+            },
+            {
+              "wrong": "头部",
+              "description": "中文翻译"
+            }
+          ]
+        },
+        "Response": {
+          "correct": "Response",
+          "description": "服务器对请求的响应",
+          "variants": [
+            {
+              "wrong": "response",
+              "description": "小写形式"
+            },
+            {
+              "wrong": "响应",
+              "description": "中文翻译"
+            }
+          ]
+        },
+        "密钥对": {
+          "correct": "密钥对",
+          "description": "公钥和私钥组成的加密密钥对，用于加密和签名",
+          "variants": [
+            {
+              "wrong": "密钥对密",
+              "description": "重复识别"
+            }
+          ]
+        }
+      }
+    },
+    "frontend": {
+      "name": "前端开发",
+      "description": "前端框架、库和工具",
+      "terms": {}
+    },
+    "backend": {
+      "name": "后端开发",
+      "description": "后端框架、库和工具",
+      "terms": {
+        "Spring": {
+          "correct": "Spring",
+          "description": "Java 企业应用框架",
+          "variants": [
+            {
+              "wrong": "spring",
+              "description": "小写形式"
+            }
+          ]
+        },
+        "SpringBoot": {
+          "correct": "SpringBoot",
+          "description": "Java后端开发框架",
+          "variants": [
+            {
+              "wrong": "Spring Boat",
+              "description": "单词独立识别"
+            },
+            {
+              "wrong": "Spring Bot",
+              "description": "单词错误识别"
+            },
+            {
+              "wrong": "SpringBot",
+              "description": "音韵误识别"
+            },
+            {
+              "wrong": "Springboard",
+              "description": "音韵误识别"
+            }
+          ]
+        },
+        "Apollo": {
+          "correct": "Apollo",
+          "description": "携程开源的配置中心",
+          "variants": [
+            {
+              "wrong": "apollo",
+              "description": "小写"
+            },
+            {
+              "wrong": "阿波罗",
+              "description": "中文规范化"
+            }
+          ]
+        },
+        "Caffeine": {
+          "correct": "Caffeine",
+          "description": "高性能的本地内存缓存，Spring支持。",
+          "variants": [
+            {
+              "wrong": "caffeine",
+              "description": "小写"
+            },
+            {
+              "wrong": "开封音",
+              "description": "中文音韵"
+            },
+            {
+              "wrong": "开复音",
+              "description": "中文音韵"
+            },
+            {
+              "wrong": "Kafin",
+              "description": "英文错误识别"
+            },
+            {
+              "wrong": "开封印",
+              "description": "中文"
+            }
+          ]
+        },
+        "Kafka": {
+          "correct": "Kafka",
+          "description": "分布式事件流平台，常用作消息队列",
+          "variants": [
+            {
+              "wrong": "kafka",
+              "description": "小写形式"
+            },
+            {
+              "wrong": "卡夫卡",
+              "description": "中文音韵识别"
+            },
+            {
+              "wrong": "卡复卡",
+              "description": "中文音韵识别"
+            },
+            {
+              "wrong": "卡附卡",
+              "description": "中文音韵识别"
+            },
+            {
+              "wrong": "卡付卡",
+              "description": "中文音韵识别"
+            }
+          ]
+        },
+        "Zookeeper": {
+          "correct": "Zookeeper",
+          "description": "分布式协调服务，常用于分布式系统配置管理和服务注册发现",
+          "variants": [
+            {
+              "wrong": "zookeeper",
+              "description": "小写形式"
+            },
+            {
+              "wrong": "zoo keeper",
+              "description": "英文分隔"
+            }
+          ]
+        },
+        "CAT": {
+          "correct": "CAT",
+          "description": "阿里开源的实时应用性能监控平台",
+          "variants": [
+            {
+              "wrong": "cat",
+              "description": "小写形式"
+            },
+            {
+              "wrong": "Kat",
+              "description": "错误识别单词"
+            },
+            {
+              "wrong": "kat",
+              "description": "错误识别单词"
+            },
+            {
+              "wrong": "Kite",
+              "description": "错误识别单词"
+            },
+            {
+              "wrong": "CAD",
+              "description": "错误识别单词"
+            }
+          ]
+        },
+        "Arthas": {
+          "correct": "Arthas",
+          "description": "阿里开源的 Java 诊断工具，用于线上问题诊断和排查",
+          "variants": [
+            {
+              "wrong": "arthas",
+              "description": "小写形式"
+            },
+            {
+              "wrong": "阿尔萨斯",
+              "description": "中文音韵识别"
+            },
+            {
+              "wrong": "RSAS",
+              "description": "英文错误识别"
+            }
+          ]
+        },
+        "入参": {
+          "correct": "入参",
+          "description": "方法调用的传入参数",
+          "variants": [
+            {
+              "wrong": "入餐",
+              "description": "识别错误"
+            }
+          ]
+        },
+        "RPC": {
+          "correct": "RPC",
+          "description": "远程过程调用，用于服务间通信",
+          "variants": [
+            {
+              "wrong": "rpc",
+              "description": "小写形式"
+            },
+            {
+              "wrong": "AR PC",
+              "description": "拆分错误"
+            }
+          ]
+        },
+        "定时任务": {
+          "correct": "定时任务",
+          "description": "按照预定时间自动执行的任务",
+          "variants": [
+            {
+              "wrong": "定时任无",
+              "description": "识别错误"
+            }
+          ]
+        },
+        "Cron": {
+          "correct": "Cron",
+          "description": "Unix/Linux中的定时任务调度工具",
+          "variants": [
+            {
+              "wrong": "cron",
+              "description": "小写形式"
+            },
+            {
+              "wrong": "克伦",
+              "description": "中文音韵识别"
+            }
+          ]
+        },
+        "cron表达式": {
+          "correct": "cron表达式",
+          "description": "用来描述定时任务执行时间的表达式",
+          "variants": [
+            {
+              "wrong": "克伦表达式",
+              "description": "Cron音韵变体"
+            }
+          ]
+        },
+        "Job": {
+          "correct": "Job",
+          "description": "任务、作业，通常指定时执行的任务",
+          "variants": [
+            {
+              "wrong": "job",
+              "description": "小写形式"
+            },
+            {
+              "wrong": "乔布",
+              "description": "中文音韵识别"
+            }
+          ]
+        },
+        "Task": {
+          "correct": "Task",
+          "description": "任务，代表一个工作单位",
+          "variants": [
+            {
+              "wrong": "task",
+              "description": "小写形式"
+            },
+            {
+              "wrong": "泰斯克",
+              "description": "中文音韵识别"
+            }
+          ]
+        },
+        "队列": {
+          "correct": "队列",
+          "description": "先进先出的数据结构，常用于消息处理",
+          "variants": [
+            {
+              "wrong": "对列",
+              "description": "近似字识别"
+            }
+          ]
+        },
+        "生产者": {
+          "correct": "生产者",
+          "description": "消息队列中生成和发送消息的组件",
+          "variants": [
+            {
+              "wrong": "身产者",
+              "description": "近似字"
+            }
+          ]
+        },
+        "消费者": {
+          "correct": "消费者",
+          "description": "消息队列中接收和处理消息的组件",
+          "variants": [
+            {
+              "wrong": "消彪者",
+              "description": "错误识别"
+            }
+          ]
+        },
+        "分布式锁": {
+          "correct": "分布式锁",
+          "description": "在分布式系统中用于同步资源访问的锁机制",
+          "variants": [
+            {
+              "wrong": "分布师锁",
+              "description": "识别错误"
+            }
+          ]
+        },
+        "映射": {
+          "correct": "映射",
+          "description": "对象转换或字段对应的过程",
+          "variants": [
+            {
+              "wrong": "荧幕",
+              "description": "近似音"
+            }
+          ]
+        },
+        "映射关系": {
+          "correct": "映射关系",
+          "description": "字段或对象之间的对应关系",
+          "variants": [
+            {
+              "wrong": "荧幕关系",
+              "description": "映射音韵变体"
+            }
+          ]
+        },
+        "QPS": {
+          "correct": "QPS",
+          "description": "Queries Per Second，每秒处理的查询请求数",
+          "variants": []
+        },
+        "TPS": {
+          "correct": "TPS",
+          "description": "Transactions Per Second，每秒处理的事务或请求数",
+          "variants": []
+        },
+        "ThreadLocal": {
+          "correct": "ThreadLocal",
+          "description": "线程本地存储机制，为每个线程提供独立变量副本",
+          "variants": []
+        }
+      }
+    },
+    "database": {
+      "name": "数据库",
+      "description": "数据库系统和相关术语",
+      "terms": {
+        "数据库": {
+          "correct": "数据库",
+          "description": "存数据的信息库",
+          "variants": [
+            {
+              "wrong": "书记库",
+              "description": "识别错误"
+            }
+          ]
+        },
+        "MySQL": {
+          "correct": "MySQL",
+          "description": "关系型数据库",
+          "variants": [
+            {
+              "wrong": "mysql",
+              "description": "小写形式"
+            },
+            {
+              "wrong": "my sql",
+              "description": "英文分隔"
+            },
+            {
+              "wrong": "message core",
+              "description": "中文音韵识别"
+            },
+            {
+              "wrong": "my circle",
+              "description": "中文音韵变体"
+            }
+          ]
+        },
+        "PostgreSQL": {
+          "correct": "PostgreSQL",
+          "description": "高级关系型数据库",
+          "variants": [
+            {
+              "wrong": "postgresql",
+              "description": "小写形式"
+            },
+            {
+              "wrong": "post gres sql",
+              "description": "英文分隔"
+            },
+            {
+              "wrong": "post gres",
+              "description": "部分分隔"
+            }
+          ]
+        },
+        "MongoDB": {
+          "correct": "MongoDB",
+          "description": "文档型 NoSQL 数据库",
+          "variants": [
+            {
+              "wrong": "mongodb",
+              "description": "小写形式"
+            }
+          ]
+        },
+        "Redis": {
+          "correct": "Redis",
+          "description": "内存数据结构存储，缓存、分布式锁常用",
+          "variants": [
+            {
+              "wrong": "redis",
+              "description": "小写形式"
+            },
+            {
+              "wrong": "瑞迪斯",
+              "description": "中文音韵识别"
+            }
+          ]
+        },
+        "DB": {
+          "correct": "DB",
+          "description": "DataBase数据库简称",
+          "variants": [
+            {
+              "wrong": "db",
+              "description": "小写形式"
+            }
+          ]
+        },
+        "DBA": {
+          "correct": "DBA",
+          "description": "Database Administrator数据库管理员",
+          "variants": [
+            {
+              "wrong": "dba",
+              "description": "小写形式"
+            }
+          ]
+        },
+        "慢SQL": {
+          "correct": "慢SQL",
+          "description": "指执行时间超过数据库设定阈值、影响性能的低效查询语句。",
+          "variants": [
+            {
+              "wrong": "MathSQL",
+              "description": "错误识别成Math"
+            },
+            {
+              "wrong": "MindSQL",
+              "description": "错误识别"
+            }
+          ]
+        },
+        "ES": {
+          "correct": "ES",
+          "description": "Elasticsearch，分布式搜索和分析引擎",
+          "variants": [
+            {
+              "wrong": "es",
+              "description": "小写形式"
+            },
+            {
+              "wrong": "E S",
+              "description": "拆分形式"
+            }
+          ]
+        },
+        "字段": {
+          "correct": "字段",
+          "description": "数据库表或对象中的属性",
+          "variants": [
+            {
+              "wrong": "资讯",
+              "description": "近似音"
+            }
+          ]
+        },
+        "基础库": {
+          "correct": "基础库",
+          "description": "基础的工具类库或基础数据库",
+          "variants": [
+            {
+              "wrong": "基础绿",
+              "description": "识别错误"
+            }
+          ]
+        },
+        "生产库": {
+          "correct": "生产库",
+          "description": "用于生产环境的数据库",
+          "variants": [
+            {
+              "wrong": "生产绿",
+              "description": "识别错误"
+            }
+          ]
+        },
+        "缓存击穿": {
+          "correct": "缓存击穿",
+          "description": "热点 key 失效瞬间大量请求直达后端导致压力骤增",
+          "variants": []
+        },
+        "缓存穿透": {
+          "correct": "缓存穿透",
+          "description": "请求不存在的数据绕过缓存直接打到数据库的风险",
+          "variants": []
+        },
+        "缓存雪崩": {
+          "correct": "缓存雪崩",
+          "description": "大量缓存同时失效导致后端被集中请求压垮",
+          "variants": []
+        }
+      }
+    },
+    "devops": {
+      "name": "DevOps工具",
+      "description": "持续集成、部署和容器化工具",
+      "terms": {
+        "Docker": {
+          "correct": "Docker",
+          "description": "容器化平台",
+          "variants": [
+            {
+              "wrong": "docker",
+              "description": "小写形式"
+            },
+            {
+              "wrong": "到克尔",
+              "description": "中文音韵识别"
+            }
+          ]
+        },
+        "回滚": {
+          "correct": "回滚",
+          "description": "流水线或代码想回退到上一执行或提交版本",
+          "variants": [
+            {
+              "wrong": "混轨",
+              "description": "小写形式"
+            }
+          ]
+        },
+        "镜像": {
+          "correct": "镜像",
+          "description": "镜像是一个只读的应用运行模板，包含程序和它的所有运行环境，用来创建容器的基础蓝图",
+          "variants": [
+            {
+              "wrong": "景象",
+              "description": "小写形式"
+            }
+          ]
+        },
+        "K8s": {
+          "correct": "K8s",
+          "description": "容器编排平台",
+          "variants": [
+            {
+              "wrong": "kubernetes",
+              "description": "全称"
+            },
+            {
+              "wrong": "K8S",
+              "description": "小写"
+            },
+            {
+              "wrong": "Cubanance",
+              "description": "语音识别错误"
+            }
+          ]
+        },
+        "Git": {
+          "correct": "Git",
+          "description": "版本控制系统",
+          "variants": [
+            {
+              "wrong": "git",
+              "description": "小写形式"
+            },
+            {
+              "wrong": "Gate",
+              "description": "小写形式"
+            },
+            {
+              "wrong": "kit",
+              "description": "单词误识别"
+            },
+            {
+              "wrong": "Kit",
+              "description": "识别错误"
+            }
+          ]
+        },
+        "GitHub": {
+          "correct": "GitHub",
+          "description": "代码托管平台",
+          "variants": [
+            {
+              "wrong": "github",
+              "description": "小写形式"
+            },
+            {
+              "wrong": "git hub",
+              "description": "英文分隔"
+            }
+          ]
+        },
+        "GitLab": {
+          "correct": "GitLab",
+          "description": "代码托管平台",
+          "variants": [
+            {
+              "wrong": "gitlab",
+              "description": "小写形式"
+            },
+            {
+              "wrong": "git lab",
+              "description": "英文分隔"
+            }
+          ]
+        },
+        "Maven": {
+          "correct": "Maven",
+          "description": "Java 项目管理工具",
+          "variants": [
+            {
+              "wrong": "maven",
+              "description": "小写形式"
+            },
+            {
+              "wrong": "没问",
+              "description": "中文转录错误"
+            }
+          ]
+        },
+        "Gradle": {
+          "correct": "Gradle",
+          "description": "项目自动化构建工具",
+          "variants": [
+            {
+              "wrong": "gradle",
+              "description": "小写形式"
+            }
+          ]
+        },
+        "npm": {
+          "correct": "npm",
+          "description": "Node.js 包管理器",
+          "variants": [
+            {
+              "wrong": "NPM",
+              "description": "大小写转义"
+            }
+          ]
+        },
+        "Yarn": {
+          "correct": "Yarn",
+          "description": "快速可靠的包管理器",
+          "variants": [
+            {
+              "wrong": "yarn",
+              "description": "小写形式"
+            }
+          ]
+        },
+        "CI/CD": {
+          "correct": "CI/CD",
+          "description": "持续集成/持续部署",
+          "variants": [
+            {
+              "wrong": "cicd",
+              "description": "无斜杠形式"
+            },
+            {
+              "wrong": "CICD",
+              "description": "规范化表示"
+            },
+            {
+              "wrong": "ci cd",
+              "description": "英文分隔"
+            },
+            {
+              "wrong": "ci/cd",
+              "description": "小写形式"
+            }
+          ]
+        },
+        "DevOps": {
+          "correct": "DevOps",
+          "description": "开发运维一体化，强调开发与运维的合作",
+          "variants": [
+            {
+              "wrong": "devops",
+              "description": "小写形式"
+            },
+            {
+              "wrong": "dev ops",
+              "description": "英文分隔"
+            }
+          ]
+        },
+        "流水线": {
+          "correct": "流水线",
+          "description": "CI/CD流程中自动化的构建和部署流程",
+          "variants": [
+            {
+              "wrong": "流水显",
+              "description": "识别错误"
+            }
+          ]
+        },
+        "部署": {
+          "correct": "部署",
+          "description": "将应用程序发布到服务器或环境中",
+          "variants": [
+            {
+              "wrong": "布署",
+              "description": "繁体字变体"
+            }
+          ]
+        },
+        "发布": {
+          "correct": "发布",
+          "description": "发布新版本或新功能到生产环境",
+          "variants": [
+            {
+              "wrong": "发步",
+              "description": "近似音"
+            }
+          ]
+        },
+        "测试环境": {
+          "correct": "测试环境",
+          "description": "用于测试的环境，通常复制生产环境配置",
+          "variants": [
+            {
+              "wrong": "测试火景",
+              "description": "识别错误"
+            }
+          ]
+        },
+        "生产环境": {
+          "correct": "生产环境",
+          "description": "运行真实业务的正式环境",
+          "variants": [
+            {
+              "wrong": "生产火景",
+              "description": "识别错误"
+            }
+          ]
+        }
+      }
+    },
+    "operations": {
+      "name": "运维",
+      "description": "系统运维、服务器、日志和监控相关",
+      "terms": {
+        "Nginx": {
+          "correct": "Nginx",
+          "description": "高性能 Web 服务器",
+          "variants": [
+            {
+              "wrong": "nginx",
+              "description": "小写形式"
+            },
+            {
+              "wrong": "N ginx",
+              "description": "小写形式"
+            },
+            {
+              "wrong": "NGX",
+              "description": "大小写"
+            },
+            {
+              "wrong": "NJX",
+              "description": "大小写"
+            }
+          ]
+        },
+        "Apache": {
+          "correct": "Apache",
+          "description": "Web 服务器",
+          "variants": [
+            {
+              "wrong": "apache",
+              "description": "小写形式"
+            },
+            {
+              "wrong": "阿帕奇",
+              "description": "规范转义"
+            }
+          ]
+        },
+        "内网": {
+          "correct": "内网",
+          "description": "公司或组织内部的局域网",
+          "variants": [
+            {
+              "wrong": "涅网",
+              "description": "识别错误"
+            }
+          ]
+        },
+        "代理": {
+          "correct": "代理",
+          "description": "代理服务器或代理程序，用于转发请求",
+          "variants": [
+            {
+              "wrong": "带理",
+              "description": "近似音"
+            }
+          ]
+        },
+        "重启": {
+          "correct": "重启",
+          "description": "重新启动服务器或应用程序",
+          "variants": [
+            {
+              "wrong": "中启",
+              "description": "近似音"
+            }
+          ]
+        }
+      }
+    },
+    "hardware": {
+      "name": "嵌入式、硬件、操作系统",
+      "description": "硬件平台、嵌入式开发板和微控制器相关术语",
+      "terms": {
+        "MacOS": {
+          "correct": "macOS",
+          "description": "Apple 的操作系统，在开发者中广泛使用",
+          "variants": [
+            {
+              "wrong": "macos",
+              "description": "小写形式"
+            },
+            {
+              "wrong": "Mac OS",
+              "description": "英文分隔"
+            },
+            {
+              "wrong": "麦克",
+              "description": "中文误识别"
+            }
+          ]
+        },
+        "Windows": {
+          "correct": "Windows",
+          "description": "Microsoft 的操作系统",
+          "variants": [
+            {
+              "wrong": "windows",
+              "description": "小写形式"
+            }
+          ]
+        },
+        "Linux": {
+          "correct": "Linux",
+          "description": "开源操作系统，在服务器和嵌入式开发中广泛使用",
+          "variants": [
+            {
+              "wrong": "linux",
+              "description": "小写形式"
+            }
+          ]
+        },
+        "STM32": {
+          "correct": "STM32",
+          "description": "意法半导体生产的 32 位微控制器，常用于嵌入式开发",
+          "variants": [
+            {
+              "wrong": "stm32",
+              "description": "小写形式"
+            },
+            {
+              "wrong": "STM 32",
+              "description": "英文分隔"
+            }
+          ]
+        },
+        "ARM": {
+          "correct": "ARM",
+          "description": "ARM Holdings 设计的处理器架构，广泛用于移动设备和嵌入式系统",
+          "variants": [
+            {
+              "wrong": "arm",
+              "description": "小写形式"
+            }
+          ]
+        }
+      }
+    },
+    "protocol": {
+      "name": "通信协议",
+      "description": "网络通信协议",
+      "terms": {
+        "HTTP": {
+          "correct": "HTTP",
+          "description": "超文本传输协议",
+          "variants": [
+            {
+              "wrong": "http",
+              "description": "小写形式"
+            }
+          ]
+        },
+        "HTTPS": {
+          "correct": "HTTPS",
+          "description": "安全的超文本传输协议",
+          "variants": [
+            {
+              "wrong": "https",
+              "description": "小写形式"
+            }
+          ]
+        },
+        "SSL": {
+          "correct": "SSL",
+          "description": "安全套接层",
+          "variants": [
+            {
+              "wrong": "ssl",
+              "description": "小写形式"
+            }
+          ]
+        },
+        "会话": {
+          "correct": "会话",
+          "description": "会话（Session）是指客户端与服务器在一段连续交互期间所维持的状态信息，用于识别用户身份并保存上下文数据的机制。",
+          "variants": [
+            {
+              "wrong": "绘画",
+              "description": "常见错误识别"
+            }
+          ]
+        }
+      }
+    },
+    "other": {
+      "name": "其他术语，持续补充中",
+      "description": "不属于以上分类的其他编程和开发相关术语",
+      "terms": {
+        "依赖": {
+          "correct": "依赖",
+          "description": "项目或模块之间的依赖关系，引用其他包或库",
+          "variants": [
+            {
+              "wrong": "依赖赖",
+              "description": "重复识别"
+            }
+          ]
+        },
+        "字符串": {
+          "correct": "字符串",
+          "description": "通过快速添加添加",
+          "variants": [
+            {
+              "wrong": "自负串",
+              "description": "通过快速添加添加"
+            }
+          ]
+        },
+        "双指针": {
+          "correct": "双指针",
+          "description": "通过快速添加添加",
+          "variants": [
+            {
+              "wrong": "双织针",
+              "description": "通过快速添加添加"
+            }
+          ]
+        },
+        "Arthas": {
+          "correct": "Arthas",
+          "description": "通过快速添加添加",
+          "variants": [
+            {
+              "wrong": "RSS",
+              "description": "通过快速添加添加"
+            }
+          ]
+        },
+        "ZooKeeper": {
+          "correct": "ZooKeeper",
+          "description": "通过快速添加添加",
+          "variants": [
+            {
+              "wrong": "租KPR",
+              "description": "通过快速添加添加"
+            },
+            {
+              "wrong": "Zoomkeeper",
+              "description": "通过快速添加添加"
+            },
+            {
+              "wrong": "租kper",
+              "description": "通过快速添加添加"
+            },
+            {
+              "wrong": "租Keeper",
+              "description": "通过快速添加添加"
+            }
+          ]
+        },
+        "Dubbo": {
+          "correct": "Dubbo",
+          "description": "通过快速添加添加",
+          "variants": [
+            {
+              "wrong": "Double",
+              "description": "通过快速添加添加"
+            },
+            {
+              "wrong": "double",
+              "description": "通过快速添加添加"
+            }
+          ]
+        },
+        "Redisson": {
+          "correct": "Redisson",
+          "description": "通过快速添加添加",
+          "variants": [
+            {
+              "wrong": "Radition",
+              "description": "通过快速添加添加"
+            }
+          ]
+        },
+        "题干": {
+          "correct": "题干",
+          "description": "通过快速添加添加",
+          "variants": [
+            {
+              "wrong": "提干",
+              "description": "通过快速添加添加"
+            },
+            {
+              "wrong": "题杆",
+              "description": "通过快速添加添加"
+            },
+            {
+              "wrong": "体感",
+              "description": "通过快速添加添加"
+            }
+          ]
+        },
+        "哈希表": {
+          "correct": "哈希表",
+          "description": "通过快速添加添加",
+          "variants": [
+            {
+              "wrong": "哈西比奥",
+              "description": "通过快速添加添加"
+            }
+          ]
+        },
+        "题解": {
+          "correct": "题解",
+          "description": "通过快速添加添加",
+          "variants": [
+            {
+              "wrong": "梯解",
+              "description": "通过快速添加添加"
+            }
+          ]
+        },
+        "红黑树": {
+          "correct": "红黑树",
+          "description": "通过快速添加添加",
+          "variants": [
+            {
+              "wrong": "红黑数",
+              "description": "通过快速添加添加"
+            }
+          ]
+        },
+        "拥有": {
+          "correct": "拥有",
+          "description": "通过快速添加添加",
+          "variants": [
+            {
+              "wrong": "游泳",
+              "description": "通过快速添加添加"
+            }
+          ]
+        },
+        "遍历": {
+          "correct": "遍历",
+          "description": "通过快速添加添加",
+          "variants": [
+            {
+              "wrong": "变例",
+              "description": "通过快速添加添加"
+            }
+          ]
+        },
+        "Lua": {
+          "correct": "Lua",
+          "description": "通过快速添加添加",
+          "variants": [
+            {
+              "wrong": "LUA",
+              "description": "通过快速添加添加"
+            }
+          ]
+        },
+        "供应": {
+          "correct": "供应",
+          "description": "通过快速添加添加",
+          "variants": [
+            {
+              "wrong": "公用",
+              "description": "通过快速添加添加"
+            }
+          ]
+        },
+        "线程池": {
+          "correct": "线程池",
+          "description": "通过快速添加添加",
+          "variants": [
+            {
+              "wrong": "现成池",
+              "description": "通过快速添加添加"
+            },
+            {
+              "wrong": "线程尺",
+              "description": "通过快速添加添加"
+            }
+          ]
+        },
+        "补丁": {
+          "correct": "补丁",
+          "description": "通过快速添加添加",
+          "variants": [
+            {
+              "wrong": "布丁",
+              "description": "通过快速添加添加"
+            }
+          ]
+        },
+        "MySQL": {
+          "correct": "MySQL",
+          "description": "通过快速添加添加",
+          "variants": [
+            {
+              "wrong": "mineSQL",
+              "description": "通过快速添加添加"
+            }
+          ]
+        },
+        "索引": {
+          "correct": "索引",
+          "description": "通过快速添加添加",
+          "variants": [
+            {
+              "wrong": "缩影",
+              "description": "通过快速添加添加"
+            }
+          ]
+        },
+        "B+树": {
+          "correct": "B+树",
+          "description": "通过快速添加添加",
+          "variants": [
+            {
+              "wrong": "B加数",
+              "description": "通过快速添加添加"
+            }
+          ]
+        },
+        "栈": {
+          "correct": "栈",
+          "description": "通过快速添加添加",
+          "variants": [
+            {
+              "wrong": "站",
+              "description": "通过快速添加添加"
+            }
+          ]
+        },
+        "负数": {
+          "correct": "负数",
+          "description": "通过快速添加添加",
+          "variants": [
+            {
+              "wrong": "附属",
+              "description": "通过快速添加添加"
+            }
+          ]
+        },
+        "鲁棒性": {
+          "correct": "鲁棒性",
+          "description": "通过快速添加添加",
+          "variants": [
+            {
+              "wrong": "鲁邦性",
+              "description": "通过快速添加添加"
+            }
+          ]
+        },
+        "递归": {
+          "correct": "递归",
+          "description": "通过快速添加添加",
+          "variants": [
+            {
+              "wrong": "地规",
+              "description": "通过快速添加添加"
+            },
+            {
+              "wrong": "地归",
+              "description": "通过快速添加添加"
+            }
+          ]
+        },
+        "节点": {
+          "correct": "节点",
+          "description": "通过快速添加添加",
+          "variants": [
+            {
+              "wrong": "接点",
+              "description": "通过快速添加添加"
+            }
+          ]
+        },
+        "协程": {
+          "correct": "协程",
+          "description": "通过快速添加添加",
+          "variants": [
+            {
+              "wrong": "携程",
+              "description": "通过快速添加添加"
+            }
+          ]
+        },
+        "重试": {
+          "correct": "重试",
+          "description": "通过快速添加添加",
+          "variants": [
+            {
+              "wrong": "重视",
+              "description": "通过快速添加添加"
+            }
+          ]
+        },
+        "幻读": {
+          "correct": "幻读",
+          "description": "通过快速添加添加",
+          "variants": [
+            {
+              "wrong": "换读",
+              "description": "通过快速添加添加"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
