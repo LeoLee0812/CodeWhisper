@@ -1,12 +1,22 @@
-# CodeWhisper 🎤
+<div align="center">
 
-**针对中文语境优化的语音转文字工具，一键转录至剪贴板，打破网页端限制，实现与各家大模型（ChatGPT/Grok/Gemini 等）的无缝对话。** | Local Speech-to-Text for Any AI
+# 🎤 CodeWhisper
+
+**Local Speech-to-Text for Any AI**
+
+**针对中文语境优化的本地语音转文字工具：按住说话、松开上屏，打破网页端限制，与 ChatGPT / Claude / Gemini / Grok 等任意大模型无缝对话**
+
+![Swift](https://img.shields.io/badge/Swift-SwiftUI-F05138?style=flat-square&logo=swift&logoColor=white)
+![Platform](https://img.shields.io/badge/platform-macOS%2014+%20·%20Apple%20Silicon-black?style=flat-square&logo=apple&logoColor=white)
+![Engine](https://img.shields.io/badge/engine-WhisperKit%20·%20CoreML%20·%20ANE-blueviolet?style=flat-square)
+![Offline](https://img.shields.io/badge/100%25-本地离线-success?style=flat-square)
+![License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)
+
+</div>
 
 > **v1.0 起，CodeWhisper 已重构为原生 Swift / SwiftUI macOS 应用** —— 菜单栏常驻、Apple Neural Engine 加速、模型内置离线开箱即用、单个 `.dmg` 安装，无需 Python / FFmpeg 环境。旧的 Python 版仍保留在仓库中作为参考（见文末「Python 旧版」）。
 
----
-
-## 为什么需要 CodeWhisper？
+## ✨ 简介
 
 ### 痛点 1：打字速度跟不上思维速度
 
@@ -34,9 +44,8 @@
 
 ### 解决思路：Whisper 本地化
 
-发现 ChatGPT 背后用的 **Whisper** 模型转录效果其实很好，问题出在网络和平台限制上。
+发现 ChatGPT 背后用的 **Whisper** 模型转录效果其实很好，问题出在网络和平台限制上。**所以把 Whisper 提取出来，做成本地工具**：
 
-**所以把 Whisper 提取出来，做成本地工具**：
 - 本地运行，不怕断网
 - 不绑定任何平台，想喂哪个 AI 就粘贴到哪个
 
@@ -52,9 +61,7 @@
 
 **语音输入层有些小错误没关系，下游大模型会兜底。** 当然，能更准确肯定更好——这就是为什么 CodeWhisper 还做了特定术语的字典纠正功能。
 
----
-
-## CodeWhisper 的解决方案
+## 🚀 功能特性
 
 ```
 ┌─────────────────────────────────────────────────────────┐
@@ -70,16 +77,13 @@
 └─────────────────────────────────────────────────────────┘
 ```
 
-**核心优势：**
 - ✅ **纯本地、离线开箱即用**：模型与 tokenizer 已内置进 App，首次启动无需联网
 - ✅ **原生 + ANE 加速**：基于 [WhisperKit](https://github.com/argmaxinc/WhisperKit)，`large-v3-turbo` 模型在 Apple Neural Engine 上数十倍实时速度，发热小、续航好
 - ✅ **不绑定平台**：想和哪个 AI 聊就粘贴到哪个
 - ✅ **中文开发优化**：400+ 术语纠正规则，社区共建
 - ✅ **零依赖安装**：单个 `.dmg`，无需 Python / FFmpeg
 
----
-
-## Quick Start 🚀
+## ⚡ 快速开始
 
 ### 系统要求
 
@@ -103,11 +107,7 @@
 >
 > ⏳ **关于首次启动**：第一次运行时，CoreML 会针对你的芯片对模型做一次性 Apple Neural Engine 编译（约 1-2 分钟，菜单栏图标显示加载中）。这一步只发生一次，之后会走缓存、秒级就绪。建议安装后先打开 App 让它在后台完成编译，再开始使用。
 
----
-
-## 使用方式
-
-### 按住说话，松开上屏
+### 使用：按住说话，松开上屏
 
 | 菜单栏图标 | 含义 |
 |------|------|
@@ -115,7 +115,6 @@
 | 🔴 | 正在录音 |
 | ⏳ | 正在转录 |
 
-**工作流程：**
 1. **按住 `⌘M`**（默认快捷键）开始录音
 2. 说出你的内容
 3. **松开** → 自动转录 → 术语纠正 → 复制到剪贴板并**自动粘贴**到当前光标处
@@ -133,12 +132,6 @@
 - **输出方式**：仅复制到剪贴板 / 复制并自动粘贴
 - **开机自启**：登录时自动常驻菜单栏
 - **提示音**：转录完成提示音开关
-
-### 后处理管线（与 Python 版对齐）
-
-录音 → WhisperKit 本地转录（锁定中文 `zh`）→ 幻觉/静音/重复循环过滤 → 繁体转简体 → 中文标点规范化 → **400+ 术语字典兜底纠错** → 上屏 + 写入历史。
-
----
 
 ## 🧠 术语纠错引擎
 
@@ -172,9 +165,25 @@
 
 > 完整规则见 [`dictionaries/programmer_terms.json`](./dictionaries/programmer_terms.json)，欢迎提 Issue / PR 补充。字典是与代码低耦合的纯 JSON，理论上可迁移到医疗、法律等其它行业。
 
----
+## 🛠️ 技术架构
 
-## 模型说明
+### 后处理管线（与 Python 版对齐）
+
+录音 → WhisperKit 本地转录（锁定中文 `zh`）→ 幻觉/静音/重复循环过滤 → 繁体转简体 → 中文标点规范化 → **400+ 术语字典兜底纠错** → 上屏 + 写入历史。
+
+### 模块实现
+
+| 模块 | 实现 |
+|------|------|
+| UI / 菜单栏 | SwiftUI `MenuBarExtra`（`LSUIElement` 隐藏 Dock 图标） |
+| 转录引擎 | WhisperKit（CoreML / Apple Neural Engine） |
+| 音频采集 | `AVAudioEngine` + `AVAudioConverter`（重采样到 16kHz 单声道） |
+| 全局快捷键 | `NSEvent` 全局监听实现 hold-to-record |
+| 自动上屏 | `NSPasteboard` 复制 + `CGEvent` 模拟 ⌘V |
+| 术语 / 繁简 / 标点 | 移植自 Python 版的纠错与归一化逻辑（`StringTransform` 繁转简） |
+| 持久化 | `UserDefaults`（设置）+ JSON（历史，存于 Application Support） |
+
+### 模型说明
 
 基于 [WhisperKit](https://github.com/argmaxinc/WhisperKit)（CoreML），在 Apple Neural Engine 上推理：
 
@@ -186,9 +195,7 @@
 
 > `tiny` / `base` 中文准确率不足，不建议用于中文。
 
----
-
-## 从源码构建 🔨
+## 🔨 从源码构建
 
 需要 Xcode 15+、[XcodeGen](https://github.com/yonaskolb/XcodeGen)、[create-dmg](https://github.com/create-dmg/create-dmg)（`brew install xcodegen create-dmg`）。
 
@@ -207,27 +214,24 @@ bash scripts/build_dmg.sh
 
 项目结构与 Agent 协作约定见 [`CLAUDE.md`](./CLAUDE.md)。
 
----
+## 📁 项目结构
 
-## 技术架构
+```
+CodeWhisper/
+├── mac/                        # 原生 Swift / SwiftUI macOS 应用（当前主线）
+│   ├── project.yml             # XcodeGen 工程定义
+│   ├── Sources/                # App 入口、Core 模块、SwiftUI 视图
+│   └── Resources/              # 图标与术语字典资源
+├── dictionaries/
+│   └── programmer_terms.json   # 400+ 条社区术语纠错规则
+├── scripts/
+│   └── build_dmg.sh            # 一键打包 DMG（构建 + 签名 + 内置模型）
+├── codewhisper/                # Python 旧版核心（转录 / 字典 / 历史）
+├── gui/                        # Python 旧版 GUI（Mac 菜单栏 / Win 悬浮球）
+└── app.py                      # Python 旧版入口
+```
 
-| 模块 | 实现 |
-|------|------|
-| UI / 菜单栏 | SwiftUI `MenuBarExtra`（`LSUIElement` 隐藏 Dock 图标） |
-| 转录引擎 | WhisperKit（CoreML / Apple Neural Engine） |
-| 音频采集 | `AVAudioEngine` + `AVAudioConverter`（重采样到 16kHz 单声道） |
-| 全局快捷键 | `NSEvent` 全局监听实现 hold-to-record |
-| 自动上屏 | `NSPasteboard` 复制 + `CGEvent` 模拟 ⌘V |
-| 术语 / 繁简 / 标点 | 移植自 Python 版的纠错与归一化逻辑（`StringTransform` 繁转简） |
-| 持久化 | `UserDefaults`（设置）+ JSON（历史，存于 Application Support） |
-
----
-
-## License 📄
-
-MIT License - 详见 [LICENSE](./LICENSE)
-
-## 参与贡献 ❤️
+## ❤️ 参与贡献
 
 - 🐛 报告转录错误和识别问题
 - 📝 添加新的术语修正规则（编辑 `dictionaries/programmer_terms.json`）
@@ -236,9 +240,7 @@ MIT License - 详见 [LICENSE](./LICENSE)
 
 详见 [CONTRIBUTING.md](./CONTRIBUTING.md)
 
----
-
-## Python 旧版（Legacy）
+## 🐍 Python 旧版（Legacy）
 
 v1.0 之前的 Python + rumps 实现仍保留在仓库：`app.py`、`codewhisper/`、`gui/`、`requirements.txt`。它支持 Mac 菜单栏与 Windows 悬浮球，依赖 Python 环境与 FFmpeg。如果你在非 Apple Silicon 设备上、或想用 NVIDIA GPU 加速，可参考旧版：
 
@@ -248,3 +250,11 @@ python app.py
 ```
 
 > 原生 macOS 版是当前主线，Python 版不再新增功能。
+
+## 📄 License
+
+MIT License - 详见 [LICENSE](./LICENSE)
+
+## ⭐ Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=LeoLee0812/CodeWhisper&type=Date)](https://www.star-history.com/#LeoLee0812/CodeWhisper&Date)
